@@ -11,7 +11,7 @@ class FeedRatePage extends StatelessWidget {
         title: const Text('Feed Rate'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.pop(),
+          onPressed: () => context.go("/"),
         ),
       ),
       body: const Center(child: Text('Feed Rate Page Placeholder')),

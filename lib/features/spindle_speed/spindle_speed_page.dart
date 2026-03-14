@@ -11,7 +11,7 @@ class SpindleSpeedPage extends StatelessWidget {
         title: const Text('Spindle Speed'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.pop(),
+          onPressed: () => context.go("/"),
         ),
       ),
       body: const Center(child: Text('Spindle Speed Page Placeholder')),

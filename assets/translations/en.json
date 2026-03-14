@@ -17,5 +17,26 @@
   "settings": "Settings",
   "dark_mode": "Dark Mode",
   "language": "Language",
-  "app_title": "CNC Toolbox"
+  "app_title": "CNC Toolbox",
+
+  "cutting_speed": "Cutting Speed",
+  "cutting_speed_calculator": "Cutting Speed Calculator",
+  "tool_diameter": "Tool Diameter (mm)",
+  "spindle_rpm": "Spindle RPM",
+  "calculate_cutting_speed": "Calculate Cutting Speed",
+  "calculation_not_implemented": "Calculation not implemented yet",
+  "material": "Material",
+  "fz_per_tooth": "Feed per tooth (mm/z)",
+  "teeth_count": "Teeth Count (Z)",
+  "cutting_speed_vc": "Cutting Speed Vc",
+  "feed_rate_f": "Feed Rate F",
+  "copied": "Copied",
+  "copy_result": "Copy Result",
+  "safety_high_rpm": "Warning: RPM too high!",
+  "safety_low_feed": "Warning: Feed too low!",
+
+  "Steel": "Stal",
+  "Aluminum": "Aluminium",
+  "Stainless": "Stal nierdzewna",
+  "Titanium": "Tytan"
 }

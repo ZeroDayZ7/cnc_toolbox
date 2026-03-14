@@ -11,7 +11,7 @@ class TapDrillPage extends StatelessWidget {
         title: const Text('Tap Drill'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.pop(),
+          onPressed: () => context.go("/"),
         ),
       ),
       body: const Center(child: Text('Tap Drill Page Placeholder')),

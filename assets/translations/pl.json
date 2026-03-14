@@ -17,5 +17,26 @@
   "settings": "Ustawienia",
   "dark_mode": "Tryb ciemny",
   "language": "Język",
-  "app_title": "CNC Toolbox"
+  "app_title": "CNC Toolbox",
+
+  "cutting_speed": "Prędkość skrawania",
+  "cutting_speed_calculator": "Kalkulator prędkości skrawania",
+  "tool_diameter": "Średnica narzędzia (mm)",
+  "spindle_rpm": "Obroty wrzeciona (RPM)",
+  "calculate_cutting_speed": "Oblicz prędkość skrawania",
+  "calculation_not_implemented": "Kalkulacja jeszcze nie zaimplementowana",
+  "material": "Materiał",
+  "fz_per_tooth": "Posuw na ząb (mm/z)",
+  "teeth_count": "Liczba ostrzy (Z)",
+  "cutting_speed_vc": "Prędkość skrawania Vc",
+  "feed_rate_f": "Posuw F",
+  "copied": "Skopiowano",
+  "copy_result": "Kopiuj wynik",
+  "safety_high_rpm": "Uwaga: Zbyt wysokie obroty!",
+  "safety_low_feed": "Uwaga: Zbyt niski posuw!",
+
+  "Steel": "Stal",
+  "Aluminum": "Aluminium",
+  "Stainless": "Stal nierdzewna",
+  "Titanium": "Tytan"
 }

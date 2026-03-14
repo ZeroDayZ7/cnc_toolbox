@@ -23,22 +23,22 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const SettingsPage(),
       ),
       GoRoute(
-        path: '/cutting_speed',
+        path: '/cutting-speed',
         name: 'cutting_speed',
         builder: (context, state) => const CuttingSpeedPage(),
       ),
       GoRoute(
-        path: '/feed_rate',
+        path: '/feed-rate',
         name: 'feed_rate',
         builder: (context, state) => const FeedRatePage(),
       ),
       GoRoute(
-        path: '/spindle_speed',
+        path: '/spindle-speed',
         name: 'spindle_speed',
         builder: (context, state) => const SpindleSpeedPage(),
       ),
       GoRoute(
-        path: '/tap_drill',
+        path: '/tap-drill',
         name: 'tap_drill',
         builder: (context, state) => const TapDrillPage(),
       ),

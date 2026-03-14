@@ -13,7 +13,7 @@ const tools = [
     icon: Icons.settings,
     labelKey: "tools.spindle_rpm",
     descriptionKey: "descriptions.spindle_rpm",
-    route: "/spindle-rpm",
+    route: "/spindle-speed",
   ),
   ToolItem(
     icon: Icons.calculate,
