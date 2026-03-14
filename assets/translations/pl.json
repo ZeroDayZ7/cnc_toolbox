@@ -1,0 +1,17 @@
+{
+  "app": {
+    "title": "CNC Toolbox"
+  },
+  "tools": {
+    "cutting_speed": "Prędkość skrawania",
+    "spindle_rpm": "Obroty wrzeciona",
+    "feed_rate": "Posuw",
+    "unit_converter": "Konwerter jednostek"
+  },
+  "descriptions": {
+    "cutting_speed": "Oblicz prędkość skrawania na podstawie średnicy i RPM",
+    "spindle_rpm": "Oblicz RPM dla materiału i narzędzia",
+    "feed_rate": "Oblicz optymalny posuw",
+    "unit_converter": "Konwersja mm/inch, m/min ↔ ft/min"
+  }
+}

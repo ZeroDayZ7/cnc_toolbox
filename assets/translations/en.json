@@ -1,0 +1,17 @@
+{
+  "app": {
+    "title": "CNC Toolbox"
+  },
+  "tools": {
+    "cutting_speed": "Cutting Speed",
+    "spindle_rpm": "Spindle RPM",
+    "feed_rate": "Feed Rate",
+    "unit_converter": "Unit Converter"
+  },
+  "descriptions": {
+    "cutting_speed": "Calculate cutting speed based on diameter and RPM",
+    "spindle_rpm": "Compute spindle RPM for given material and tool",
+    "feed_rate": "Calculate optimal feed rate",
+    "unit_converter": "Convert mm/inch, m/min ↔ ft/min"
+  }
+}
