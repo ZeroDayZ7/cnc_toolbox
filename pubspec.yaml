@@ -36,6 +36,7 @@ dependencies:
 
   # state management
   flutter_riverpod: ^3.0.3
+  riverpod_annotation: ^4.0.0
 
   # tłumaczenia
   easy_localization: ^3.0.8
@@ -63,6 +64,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  riverpod_generator: ^4.0.0+1
+  build_runner: ^2.10.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

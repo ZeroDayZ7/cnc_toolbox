@@ -21,21 +21,32 @@ class HomePage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: GridView.builder(
-          itemCount: tools.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-          ),
-          itemBuilder: (context, index) {
-            final tool = tools[index];
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final crossAxisCount = constraints.maxWidth > 900
+                ? 4
+                : constraints.maxWidth > 600
+                ? 3
+                : 2;
 
-            return ToolTile(
-              icon: tool.icon,
-              label: tool.labelKey,
-              description: tool.descriptionKey,
-              onTap: () => context.go(tool.route),
+            return GridView.builder(
+              itemCount: tools.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: crossAxisCount,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                childAspectRatio: 0.85,
+              ),
+              itemBuilder: (context, index) {
+                final tool = tools[index];
+
+                return ToolTile(
+                  icon: tool.icon,
+                  label: tool.labelKey,
+                  description: tool.descriptionKey,
+                  onTap: () => context.go(tool.route),
+                );
+              },
             );
           },
         ),

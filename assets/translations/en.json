@@ -13,5 +13,9 @@
     "spindle_rpm": "Compute spindle RPM for given material and tool",
     "feed_rate": "Calculate optimal feed rate",
     "unit_converter": "Convert mm/inch, m/min ↔ ft/min"
-  }
+  },
+  "settings": "Settings",
+  "dark_mode": "Dark Mode",
+  "language": "Language",
+  "app_title": "CNC Toolbox"
 }

@@ -13,5 +13,9 @@
     "spindle_rpm": "Oblicz RPM dla materiału i narzędzia",
     "feed_rate": "Oblicz optymalny posuw",
     "unit_converter": "Konwersja mm/inch, m/min ↔ ft/min"
-  }
+  },
+  "settings": "Ustawienia",
+  "dark_mode": "Tryb ciemny",
+  "language": "Język",
+  "app_title": "CNC Toolbox"
 }
