@@ -50,6 +50,8 @@
   "version": "Wersja",
   "about_desc": "Wersja aplikacji i kontakt",
 
+  "close": "Zamknij",
+
   "tolerance": {
     "diameter": "Średnica nominalna",
     "grade": "Klasa pasowania",

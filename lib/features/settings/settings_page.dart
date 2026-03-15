@@ -1,3 +1,4 @@
+import 'package:cnc_toolbox/core/constants/constants.dart';
 import 'package:cnc_toolbox/core/theme/theme_provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -174,9 +175,10 @@ class SettingsPage extends ConsumerWidget {
                 ),
                 const SizedBox(height: 8),
                 ListTile(
-                  title: Text('${'version'.tr()}: 1.0.0'),
+                  title: Text('${'version'.tr()}: ${AppInfo.appVersion}'),
                   subtitle: Text('about_desc'.tr()),
                   leading: const Icon(Icons.info_outline),
+                  onTap: () => _showAppInfo(context),
                 ),
               ],
             ),
@@ -185,4 +187,33 @@ class SettingsPage extends ConsumerWidget {
       ),
     );
   }
+}
+
+
+void _showAppInfo(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: Text('about'.tr()),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('${'version'.tr()}: ${AppInfo.appVersion}'),
+            const SizedBox(height: 8),
+            Text('Contact: support@velocnc.com'),
+            const SizedBox(height: 4),
+            Text('Website: https://velocnc.com'),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text('close'.tr()),
+          ),
+        ],
+      );
+    },
+  );
 }

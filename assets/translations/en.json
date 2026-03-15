@@ -50,6 +50,8 @@
   "version": "Version",
   "about_desc": "App version and contact",
 
+  "close": "Close",
+
   "tolerance": {
     "diameter": "Nominal diameter",
     "grade": "Tolerance grade",
