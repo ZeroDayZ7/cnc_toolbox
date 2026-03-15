@@ -6,7 +6,8 @@
     "cutting_speed": "Prędkość skrawania",
     "spindle_rpm": "Obroty wrzeciona",
     "feed_rate": "Posuw",
-    "unit_converter": "Konwerter jednostek"
+    "unit_converter": "Konwerter jednostek",
+    "tolerances": "Tolerancje pasowania"
   },
   "descriptions": {
     "cutting_speed": "Oblicz prędkość skrawania na podstawie średnicy i RPM",
@@ -18,7 +19,6 @@
   "dark_mode": "Tryb ciemny",
   "language": "Język",
   "app_title": "CNC Toolbox",
-
   "cutting_speed": "Prędkość skrawania",
   "cutting_speed_calculator": "Kalkulator prędkości skrawania",
   "tool_diameter": "Średnica narzędzia (mm)",
@@ -34,9 +34,30 @@
   "copy_result": "Kopiuj wynik",
   "safety_high_rpm": "Uwaga: Zbyt wysokie obroty!",
   "safety_low_feed": "Uwaga: Zbyt niski posuw!",
-
   "Steel": "Stal",
   "Aluminum": "Aluminium",
   "Stainless": "Stal nierdzewna",
-  "Titanium": "Tytan"
+  "Titanium": "Tytan",
+  "appearance": "Wygląd",
+  "dark_mode_desc": "Włącza tryb ciemny",
+  "change_language_desc": "Wybierz język aplikacji",
+  "preferences": "Preferencje",
+  "unit_system": "System jednostek",
+  "unit_system_desc": "Metryczne lub imperialne",
+  "notifications": "Powiadomienia",
+  "notifications_desc": "Powiadomienia push",
+  "about": "O aplikacji",
+  "version": "Wersja",
+  "about_desc": "Wersja aplikacji i kontakt",
+
+  "tolerance": {
+    "diameter": "Średnica nominalna",
+    "grade": "Klasa pasowania",
+    "upper_dev": "Odchyłka górna",
+    "lower_dev": "Odchyłka dolna",
+    "result_range": "Wymiar graniczny (min ÷ max)"
+  },
+  "error": {
+    "out_of_range": "Średnica poza zakresem bazy danych"
+  }
 }

@@ -27,4 +27,10 @@ const tools = [
     descriptionKey: "descriptions.unit_converter",
     route: "/converter",
   ),
+  ToolItem(
+    icon: Icons.precision_manufacturing,
+    labelKey: "tools.tolerances",
+    descriptionKey: "descriptions.tolerances",
+    route: "/tolerances",
+  ),
 ];

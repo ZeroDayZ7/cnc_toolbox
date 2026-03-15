@@ -24,7 +24,7 @@ class SettingsPage extends ConsumerWidget {
             ListTile(
               title: const Text('Polski'),
               trailing: currentLocale.languageCode == 'pl'
-                  ? const Icon(Icons.check)
+                  ? const Icon(Icons.check, color: Colors.blue)
                   : null,
               onTap: () {
                 context.setLocale(const Locale('pl'));
@@ -35,7 +35,7 @@ class SettingsPage extends ConsumerWidget {
             ListTile(
               title: const Text('English'),
               trailing: currentLocale.languageCode == 'en'
-                  ? const Icon(Icons.check)
+                  ? const Icon(Icons.check, color: Colors.blue)
                   : null,
               onTap: () {
                 context.setLocale(const Locale('en'));
@@ -64,19 +64,122 @@ class SettingsPage extends ConsumerWidget {
         ),
       ),
       body: ListView(
+        padding: const EdgeInsets.all(16),
         children: [
-          SwitchListTile(
-            title: Text('dark_mode'.tr()),
-            value: isDarkMode,
-            onChanged: (val) => themeNotifier.toggleTheme(val),
-          ),
-          ListTile(
-            title: Text('language'.tr()),
-            subtitle: Text(
-              currentLocale.languageCode == 'pl' ? 'Polski' : 'English',
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Theme.of(
+                context,
+              ).colorScheme.surfaceContainerHighest.withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(12),
             ),
-            trailing: const Icon(Icons.keyboard_arrow_up),
-            onTap: () => _showLanguagePicker(context, ref),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'appearance'.tr(),
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: 8),
+                SwitchListTile(
+                  title: Text('dark_mode'.tr()),
+                  subtitle: Text('dark_mode_desc'.tr()),
+                  value: isDarkMode,
+                  onChanged: (val) => themeNotifier.toggleTheme(val),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Theme.of(
+                context,
+              ).colorScheme.surfaceContainerHighest.withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'language'.tr(),
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: 8),
+                ListTile(
+                  title: Text(
+                    currentLocale.languageCode == 'pl' ? 'Polski' : 'English',
+                  ),
+                  subtitle: Text('change_language_desc'.tr()),
+                  onTap: () => _showLanguagePicker(context, ref),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  tileColor: Theme.of(
+                    context,
+                  ).colorScheme.primaryContainer.withValues(alpha: 0.1),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Theme.of(
+                context,
+              ).colorScheme.surfaceContainerHighest.withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'preferences'.tr(),
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: 8),
+                ListTile(
+                  title: Text('unit_system'.tr()),
+                  subtitle: Text('unit_system_desc'.tr()),
+                  onTap: () {},
+                  leading: const Icon(Icons.straighten),
+                ),
+                ListTile(
+                  title: Text('notifications'.tr()),
+                  subtitle: Text('notifications_desc'.tr()),
+                  onTap: () {},
+                  leading: const Icon(Icons.notifications),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Theme.of(
+                context,
+              ).colorScheme.surfaceContainerHighest.withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'about'.tr(),
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: 8),
+                ListTile(
+                  title: Text('${'version'.tr()}: 1.0.0'),
+                  subtitle: Text('about_desc'.tr()),
+                  leading: const Icon(Icons.info_outline),
+                ),
+              ],
+            ),
           ),
         ],
       ),

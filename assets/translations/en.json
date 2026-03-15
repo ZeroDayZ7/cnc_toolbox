@@ -6,11 +6,12 @@
     "cutting_speed": "Cutting Speed",
     "spindle_rpm": "Spindle RPM",
     "feed_rate": "Feed Rate",
-    "unit_converter": "Unit Converter"
+    "unit_converter": "Unit Converter",
+    "tolerances": "Tolerances fitting"
   },
   "descriptions": {
     "cutting_speed": "Calculate cutting speed based on diameter and RPM",
-    "spindle_rpm": "Compute spindle RPM for given material and tool",
+    "spindle_rpm": "Calculate RPM for material and tool",
     "feed_rate": "Calculate optimal feed rate",
     "unit_converter": "Convert mm/inch, m/min ↔ ft/min"
   },
@@ -18,25 +19,45 @@
   "dark_mode": "Dark Mode",
   "language": "Language",
   "app_title": "CNC Toolbox",
-
   "cutting_speed": "Cutting Speed",
   "cutting_speed_calculator": "Cutting Speed Calculator",
   "tool_diameter": "Tool Diameter (mm)",
-  "spindle_rpm": "Spindle RPM",
+  "spindle_rpm": "Spindle Speed (RPM)",
   "calculate_cutting_speed": "Calculate Cutting Speed",
   "calculation_not_implemented": "Calculation not implemented yet",
   "material": "Material",
   "fz_per_tooth": "Feed per tooth (mm/z)",
-  "teeth_count": "Teeth Count (Z)",
-  "cutting_speed_vc": "Cutting Speed Vc",
-  "feed_rate_f": "Feed Rate F",
+  "teeth_count": "Number of flutes (Z)",
+  "cutting_speed_vc": "Cutting speed Vc",
+  "feed_rate_f": "Feed rate F",
   "copied": "Copied",
-  "copy_result": "Copy Result",
+  "copy_result": "Copy result",
   "safety_high_rpm": "Warning: RPM too high!",
-  "safety_low_feed": "Warning: Feed too low!",
+  "safety_low_feed": "Warning: Feed rate too low!",
+  "Steel": "Steel",
+  "Aluminum": "Aluminum",
+  "Stainless": "Stainless Steel",
+  "Titanium": "Titanium",
+  "appearance": "Appearance",
+  "dark_mode_desc": "Enables dark mode",
+  "change_language_desc": "Choose application language",
+  "preferences": "Preferences",
+  "unit_system": "Unit System",
+  "unit_system_desc": "Metric or Imperial",
+  "notifications": "Notifications",
+  "notifications_desc": "Push notifications",
+  "about": "About",
+  "version": "Version",
+  "about_desc": "App version and contact",
 
-  "Steel": "Stal",
-  "Aluminum": "Aluminium",
-  "Stainless": "Stal nierdzewna",
-  "Titanium": "Tytan"
+  "tolerance": {
+    "diameter": "Nominal diameter",
+    "grade": "Tolerance grade",
+    "upper_dev": "Upper deviation",
+    "lower_dev": "Lower deviation",
+    "result_range": "Dimension limit (min ÷ max)"
+  },
+  "error": {
+    "out_of_range": "Diameter out of database range"
+  }
 }

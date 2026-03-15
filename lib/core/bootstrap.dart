@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/app.dart';
+import 'package:cnc_toolbox/core/app_observer.dart';
 import 'package:cnc_toolbox/core/shared_prefs_provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ Future<void> bootstrap() async {
 
   runApp(
     ProviderScope(
+      observers: const [AppObserver()],
       overrides: [sharedPrefsProvider.overrideWithValue(prefs)],
       child: EasyLocalization(
         supportedLocales: const [Locale('en'), Locale('pl'), Locale('de')],

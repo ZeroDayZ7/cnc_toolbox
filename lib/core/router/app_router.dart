@@ -4,6 +4,7 @@ import 'package:cnc_toolbox/features/home/home_page.dart';
 import 'package:cnc_toolbox/features/settings/settings_page.dart';
 import 'package:cnc_toolbox/features/spindle_speed/spindle_speed_page.dart';
 import 'package:cnc_toolbox/features/tap_drill/tap_drill_page.dart';
+import 'package:cnc_toolbox/features/tolerances/tolerance_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -41,6 +42,16 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: '/tap-drill',
         name: 'tap_drill',
         builder: (context, state) => const TapDrillPage(),
+      ),
+      GoRoute(
+        path: '/converter',
+        name: 'converter',
+        builder: (context, state) => const TapDrillPage(),
+      ),
+      GoRoute(
+        path: '/tolerances',
+        name: 'tolerances',
+        builder: (context, state) => const TolerancePage(),
       ),
     ],
   );

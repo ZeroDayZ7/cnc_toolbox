@@ -38,10 +38,11 @@
     "obywatel_app.code-workspace": true,
     "LICENSE": true,
     "devtools_options.yaml": true,
-    "flutter_launcher_icons.yaml": true
+    "flutter_launcher_icons.yaml": true,
     // "**/*.freezed.dart": true,
     // "**/*.g.dart": true
-    // "android": true
+    "android": true,
+    "cnc_toolbox.iml": true
   },
 
   // (Search)
@@ -74,7 +75,8 @@
     "flutter_launcher_icons.yaml": true,
     "**/*.freezed.dart": true,
     "**/*.g.dart": true,
-    "**/*.txt": true
+    "**/*.txt": true,
+    "cnc_toolbox.iml": true
     // "android": true,
   }
 }
