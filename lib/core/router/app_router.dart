@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/core/constants/constants.dart';
+import 'package:cnc_toolbox/features/converter/converter_page.dart';
 import 'package:cnc_toolbox/features/cutting_speed/cutting_speed_page.dart';
 import 'package:cnc_toolbox/features/feed_rate/feed_rate_page.dart';
 import 'package:cnc_toolbox/features/g_codes/presentation/g_codes_page.dart';
@@ -51,7 +52,7 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: Routes.converter,
         name: 'converter',
-        builder: (context, state) => const TapDrillPage(),
+        builder: (context, state) => const ConverterPage(),
       ),
       GoRoute(
         path: Routes.tolerances,

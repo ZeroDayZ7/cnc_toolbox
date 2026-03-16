@@ -17,11 +17,11 @@ class _GCodesPageState extends State<GCodesPage> {
   String _query = "";
 
   List filteredCodes() {
-    if (_query.isEmpty) return gCodes;
+    if (_query.isEmpty) return cncCodes;
 
     final q = _query.toLowerCase();
 
-    return gCodes.where((code) {
+    return cncCodes.where((code) {
       return code.code.toLowerCase().contains(q) ||
           code.titleKey.tr().toLowerCase().contains(q) ||
           code.descriptionKey.tr().toLowerCase().contains(q);
