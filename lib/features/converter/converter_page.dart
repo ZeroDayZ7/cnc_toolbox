@@ -1,12 +1,12 @@
-import 'package:cnc_toolbox/core/constants/constants.dart';
+import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
 import 'package:cnc_toolbox/features/converter/application/converter_settings_provider.dart';
 import 'package:cnc_toolbox/features/converter/data/units_data.dart';
 import 'package:cnc_toolbox/features/converter/widgets/converter_inputs.dart';
 import 'package:cnc_toolbox/features/converter/widgets/converter_sidebar.dart';
 import 'package:cnc_toolbox/features/converter/widgets/settings_sheet.dart';
+import 'package:cnc_toolbox/widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
 class ConverterPage extends ConsumerStatefulWidget {
   const ConverterPage({super.key});
@@ -41,12 +41,8 @@ class _ConverterPageState extends ConsumerState<ConverterPage> {
         .toList();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Konwerter"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.go(Routes.home),
-        ),
+      appBar: CncAppBar(
+        titleKey: LocaleKeys.tools_unit_converter,
         actions: [
           IconButton(
             icon: const Icon(Icons.tune),

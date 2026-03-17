@@ -228,6 +228,36 @@
   "converter_to": "Na",
   "converter_result": "Wynik",
 
+  "converter": {
+    "title": "Konwerter jednostek",
+    "categories": {
+      "length": "Długość",
+      "temp": "Temperatura",
+      "speed": "Prędkość",
+      "pressure": "Ciśnienie"
+    },
+    "units": {
+      "m": "Metr",
+      "mm": "Milimetr",
+      "um": "Mikrometr",
+      "km": "Kilometr",
+      "inch": "Cal",
+      "celsius": "Celsjusz",
+      "fahrenheit": "Fahrenheit",
+      "kelvin": "Kelvin",
+      "m_s": "Metr na sekundę",
+      "km_h": "Kilometr na godzinę",
+      "mm_min": "Milimetr na minutę",
+      "mm_s": "Milimetr na sekundę",
+      "in_min": "Cal na minutę",
+      "bar": "Bar",
+      "psi": "PSI",
+      "pa": "Pascal",
+      "mpa": "MegaPascal",
+      "atm": "Atmosfera"
+    }
+  },
+
   "search_hint": "Szukaj kodu G...",
   "error": {
     "out_of_range": "Średnica poza zakresem bazy danych"

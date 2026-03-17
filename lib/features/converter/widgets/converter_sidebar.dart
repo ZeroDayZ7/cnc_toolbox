@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/features/converter/models/converter_category.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class ConverterSidebar extends StatelessWidget {
@@ -91,7 +92,7 @@ class ConverterSidebar extends StatelessWidget {
                               child: Padding(
                                 padding: const EdgeInsets.only(left: 16),
                                 child: Text(
-                                  cat.label,
+                                  cat.label.tr(),
                                   maxLines: 1,
                                   softWrap: false,
                                   overflow: TextOverflow.clip,

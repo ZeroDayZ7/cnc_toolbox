@@ -1,10 +1,14 @@
+import 'package:cnc_toolbox/features/converter/application/converter_provider.dart';
+import 'package:cnc_toolbox/features/converter/models/unit_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../application/converter_provider.dart';
+
+
 
 class ConverterInputs extends ConsumerWidget {
-  final List units;
+  final List<UnitDefinition> units;
   final Map<String, TextEditingController> controllers;
   final String categoryId;
 
@@ -46,7 +50,7 @@ class ConverterInputs extends ConsumerWidget {
           controller: controller,
           keyboardType: const TextInputType.numberWithOptions(decimal: true),
           decoration: InputDecoration(
-            labelText: unit.label,
+            labelText: unit.label.tr(),
             suffixText: unit.symbol,
             suffixStyle: const TextStyle(
               fontWeight: FontWeight.bold,
