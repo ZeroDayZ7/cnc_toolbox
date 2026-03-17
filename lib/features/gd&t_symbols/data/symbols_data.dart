@@ -118,7 +118,7 @@ const gdSymbolsList = [
   // Runout Tolerances
   GdSymbol(
     name: "gd_symbols.items.circular_runout.name",
-    symbol: "↗",
+    symbol: "\u2197\uFE0E",
     description:
         "Tolerancja bicia promieniowego/osiowego - strefa ograniczona dwoma koncentrycznymi okręgami.",
     category: SymbolCategory.runout,

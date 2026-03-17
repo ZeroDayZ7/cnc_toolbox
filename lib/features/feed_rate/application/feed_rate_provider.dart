@@ -1,9 +1,8 @@
 import 'package:cnc_toolbox/core/database/database.dart';
 import 'package:cnc_toolbox/core/utils/logger/app_logger.dart';
 import 'package:cnc_toolbox/core/utils/logger/logger_provider.dart';
+import 'package:cnc_toolbox/features/feed_rate/domain/feed_rate_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import 'feed_rate_state.dart';
 
 part 'feed_rate_provider.g.dart';
 
