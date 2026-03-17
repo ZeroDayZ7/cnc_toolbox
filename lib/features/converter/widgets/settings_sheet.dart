@@ -1,13 +1,15 @@
 // lib/features/converter/widgets/settings_sheet.dart
 
+import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/features/converter/application/converter_settings_provider.dart';
+import 'package:cnc_toolbox/features/converter/models/unit_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../application/converter_settings_provider.dart';
-
 class SettingsSheet extends ConsumerWidget {
   final String categoryId;
-  final List units; // Lista wszystkich jednostek z repozytorium
+  final List<UnitDefinition> units;
 
   const SettingsSheet({
     super.key,
@@ -31,14 +33,14 @@ class SettingsSheet extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Widoczne jednostki",
+                  LocaleKeys.converter_input.tr(),
                   style: Theme.of(
                     context,
                   ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
                 ),
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text("Gotowe"),
+                  child: Text(LocaleKeys.converter_result.tr()),
                 ),
               ],
             ),
@@ -49,11 +51,10 @@ class SettingsSheet extends ConsumerWidget {
               itemCount: units.length,
               itemBuilder: (context, index) {
                 final unit = units[index];
-                // Sprawdzamy czy jednostka jest włączona
                 final isVisible = settings.isUnitVisible(categoryId, unit.id);
 
                 return CheckboxListTile(
-                  title: Text(unit.label),
+                  title: Text(unit.label.tr()),
                   secondary: Text(
                     unit.symbol,
                     style: const TextStyle(
@@ -74,7 +75,7 @@ class SettingsSheet extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "Odznacz jednostki, których nie używasz na co dzień.",
+              LocaleKeys.converter_settings_hint.tr(),
               style: Theme.of(context).textTheme.bodySmall,
             ),
           ),

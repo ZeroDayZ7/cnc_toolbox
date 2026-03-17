@@ -20,7 +20,7 @@ final class FeedRateNotifierProvider
   }) : super(
          retry: null,
          name: r'feedRateProvider',
-         isAutoDispose: true,
+         isAutoDispose: false,
          dependencies: null,
          $allTransitiveDependencies: null,
        );
@@ -58,7 +58,7 @@ final class FeedRateNotifierProvider
   }
 }
 
-String _$feedRateNotifierHash() => r'249aefc8eb145b48310e7b192a44cb2caeef601b';
+String _$feedRateNotifierHash() => r'b60bb8676a71fba0cc920d22bd2094c455a2ff7f';
 
 final class FeedRateNotifierFamily extends $Family
     with
@@ -75,7 +75,7 @@ final class FeedRateNotifierFamily extends $Family
         name: r'feedRateProvider',
         dependencies: null,
         $allTransitiveDependencies: null,
-        isAutoDispose: true,
+        isAutoDispose: false,
       );
 
   FeedRateNotifierProvider call(String type) =>

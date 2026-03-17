@@ -20,7 +20,7 @@ final class ConverterNotifierProvider
   }) : super(
          retry: null,
          name: r'converterProvider',
-         isAutoDispose: true,
+         isAutoDispose: false,
          dependencies: null,
          $allTransitiveDependencies: null,
        );
@@ -58,7 +58,7 @@ final class ConverterNotifierProvider
   }
 }
 
-String _$converterNotifierHash() => r'4cbe58321f0c5ede37223aab104364a184b3a026';
+String _$converterNotifierHash() => r'1da597671307949d4a7e2333238173cc981c8b89';
 
 final class ConverterNotifierFamily extends $Family
     with
@@ -75,7 +75,7 @@ final class ConverterNotifierFamily extends $Family
         name: r'converterProvider',
         dependencies: null,
         $allTransitiveDependencies: null,
-        isAutoDispose: true,
+        isAutoDispose: false,
       );
 
   ConverterNotifierProvider call(String category) =>

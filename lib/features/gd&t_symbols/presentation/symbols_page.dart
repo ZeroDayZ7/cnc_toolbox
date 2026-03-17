@@ -1,5 +1,5 @@
-import 'package:cnc_toolbox/core/constants/constants.dart';
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/widgets/app_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -74,12 +74,8 @@ class GdSymbolsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(LocaleKeys.gd_symbols_title.tr()),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.go(Routes.home),
-        ),
+      appBar: CncAppBar(
+        titleKey: LocaleKeys.gd_symbols_title.tr(),
         actions: [
           IconButton(
             icon: const Icon(Icons.info_outline),

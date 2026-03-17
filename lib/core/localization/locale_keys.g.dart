@@ -198,11 +198,12 @@ abstract class  LocaleKeys {
   static const mcodes_m30_title = 'mcodes.m30_title';
   static const mcodes_m30_desc = 'mcodes.m30_desc';
   static const mcodes = 'mcodes';
-  static const converter_input = 'converter_input';
-  static const converter_from = 'converter_from';
-  static const converter_to = 'converter_to';
-  static const converter_result = 'converter_result';
   static const converter_title = 'converter.title';
+  static const converter_input = 'converter.input';
+  static const converter_from = 'converter.from';
+  static const converter_to = 'converter.to';
+  static const converter_result = 'converter.result';
+  static const converter_settings_hint = 'converter.settings_hint';
   static const converter_categories_length = 'converter.categories.length';
   static const converter_categories_temp = 'converter.categories.temp';
   static const converter_categories_speed = 'converter.categories.speed';

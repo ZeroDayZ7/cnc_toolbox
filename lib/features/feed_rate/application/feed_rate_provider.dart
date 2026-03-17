@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'feed_rate_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class FeedRateNotifier extends _$FeedRateNotifier {
   @override
   FeedRateState build(String type) => const FeedRateState();

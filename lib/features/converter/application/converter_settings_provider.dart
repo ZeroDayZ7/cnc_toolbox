@@ -31,7 +31,7 @@ class SettingsState {
   }
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 class SettingsNotifier extends _$SettingsNotifier {
   static const _sidebarKey = 'sidebar_expanded';
   static const _unitsKeyPrefix = 'units_';

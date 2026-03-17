@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'converter_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class ConverterNotifier extends _$ConverterNotifier {
   @override
   ConverterState build(String category) {

@@ -8,6 +8,7 @@ class CncAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool showBackButton;
   final List<Widget>? actions;
   final VoidCallback? onBackPress;
+  final PreferredSizeWidget? bottom; // 1. DODAJ TO POLE
 
   const CncAppBar({
     super.key,
@@ -15,6 +16,7 @@ class CncAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.showBackButton = true,
     this.actions,
     this.onBackPress,
+    this.bottom, // 2. DODAJ DO KONSTRUKTORA
   });
 
   @override
@@ -36,9 +38,12 @@ class CncAppBar extends StatelessWidget implements PreferredSizeWidget {
             )
           : null,
       actions: actions,
+      bottom: bottom, // 3. PRZEKAŻ DO WEWNĘTRZNEGO APPBARA
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  // 4. POPRAW WYSOKOŚĆ (jeśli jest bottom, musi być wyższy)
+  Size get preferredSize =>
+      Size.fromHeight(kToolbarHeight + (bottom?.preferredSize.height ?? 0.0));
 }

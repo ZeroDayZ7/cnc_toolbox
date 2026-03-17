@@ -223,13 +223,13 @@
     "m30_desc": "Zakończenie programu i powrót kursora na jego początek."
   },
 
-  "converter_input": "Wpisz wartość",
-  "converter_from": "Z",
-  "converter_to": "Na",
-  "converter_result": "Wynik",
-
   "converter": {
     "title": "Konwerter jednostek",
+    "input": "Wpisz wartość",
+    "from": "Z",
+    "to": "Na",
+    "result": "Wynik",
+    "settings_hint": "Odznacz jednostki, których nie używasz na co dzień.",
     "categories": {
       "length": "Długość",
       "temp": "Temperatura",
