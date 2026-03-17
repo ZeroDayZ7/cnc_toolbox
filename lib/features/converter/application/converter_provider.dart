@@ -1,8 +1,6 @@
-// features/converter/application/converter_provider.dart
+import 'package:cnc_toolbox/features/converter/domain/converter_state.dart';
+import 'package:cnc_toolbox/features/converter/models/unit_model.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../domain/converter_state.dart';
-import '../domain/unit_model.dart';
 
 part 'converter_provider.g.dart';
 
@@ -22,27 +20,60 @@ class ConverterNotifier extends _$ConverterNotifier {
     final double? inputValue = double.tryParse(value.replaceAll(',', '.'));
     if (inputValue == null) return;
 
-    // 1. Znajdź definicję jednostki, którą user edytuje
-    final currentUnit = allUnits.firstWhere((u) => u.id == unitId);
-
-    // 2. Przelicz na bazę (np. na metry)
-    final double baseValue = inputValue * currentUnit.ratio;
-
-    // 3. Przelicz z bazy na wszystkie pozostałe
     final Map<String, String> newValues = {};
-    for (var unit in allUnits) {
-      if (unit.id == unitId) {
-        newValues[unit.id] =
-            value; // Zostaw wpisany tekst (żeby nie psuć kropki)
-      } else {
-        final double converted = baseValue / unit.ratio;
-        // Formatowanie: usuń zbędne zera po przecinku
-        newValues[unit.id] = converted
-            .toStringAsFixed(6)
-            .replaceAll(RegExp(r"([.]*0+)(?!.*\d)"), "");
+
+    if (category == 'temp') {
+      double celsius;
+      switch (unitId) {
+        case 'fahrenheit':
+          celsius = (inputValue - 32) / 1.8;
+          break;
+        case 'kelvin':
+          celsius = inputValue - 273.15;
+          break;
+        default:
+          celsius = inputValue;
+      }
+
+      for (var unit in allUnits) {
+        if (unit.id == unitId) {
+          newValues[unit.id] = value;
+        } else {
+          double converted;
+          switch (unit.id) {
+            case 'fahrenheit':
+              converted = (celsius * 1.8) + 32;
+              break;
+            case 'kelvin':
+              converted = celsius + 273.15;
+              break;
+            default:
+              converted = celsius;
+          }
+          newValues[unit.id] = _formatValue(converted);
+        }
+      }
+    } else {
+      final currentUnit = allUnits.firstWhere((u) => u.id == unitId);
+      final double baseValue = inputValue * currentUnit.ratio;
+
+      for (var unit in allUnits) {
+        if (unit.id == unitId) {
+          newValues[unit.id] = value;
+        } else {
+          final double converted = baseValue / unit.ratio;
+          newValues[unit.id] = _formatValue(converted);
+        }
       }
     }
 
     state = state.copyWith(values: newValues);
+  }
+
+  String _formatValue(double v) {
+    return v
+        .toStringAsFixed(6)
+        .replaceAll(RegExp(r"([.]*0+)(?!.*\d)"), "")
+        .replaceAll(RegExp(r"\.$"), "");
   }
 }

@@ -58,7 +58,7 @@ final class ConverterNotifierProvider
   }
 }
 
-String _$converterNotifierHash() => r'baf588389adfaa78845a343c35e04a54c3b644e5';
+String _$converterNotifierHash() => r'4cbe58321f0c5ede37223aab104364a184b3a026';
 
 final class ConverterNotifierFamily extends $Family
     with
