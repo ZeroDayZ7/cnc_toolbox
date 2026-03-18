@@ -34,42 +34,33 @@ class GCodesInfoModal {
                 ),
               ),
               Text(
-                "O G-kodach",
+                LocaleKeys.g_codes_info_title.tr(),
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 16),
-              const Text(
-                "G-kody to znormalizowany język programowania używany do sterowania maszynami CNC (frezarkami, tokarkami, drukarkami 3D).",
-                style: TextStyle(fontSize: 16, height: 1.5),
+              Text(
+                LocaleKeys.g_codes_info_description.tr(),
+                style: const TextStyle(fontSize: 16, height: 1.5),
               ),
               const SizedBox(height: 24),
-              const InfoSection(
-                title: "Jak to działa?",
-                content:
-                    "Każda linia kodu (tzw. blok) instruuje maszynę, co ma zrobić. Litera 'G' zazwyczaj odnosi się do przygotowania geometrii ruchu (G-eometry), czyli mówi maszynie, czy ma jechać po linii prostej, łuku, czy może wykonać cykl wiercenia.",
+              InfoSection(
+                title: LocaleKeys.g_codes_info_how_it_works_title.tr(),
+                content: LocaleKeys.g_codes_info_how_it_works_content.tr(),
               ),
               const SizedBox(height: 20),
-              const InfoSection(
-                title: "Struktura komendy",
-                content:
-                    "Typowy blok kodu składa się z litery i wartości liczbowej:\n"
-                    "• G01 – Co robić (Ruch liniowy)\n"
-                    "• X10 Y20 – Gdzie (Współrzędne)\n"
-                    "• F150 – Jak szybko (Posuw/Feedrate)",
+              InfoSection(
+                title: LocaleKeys.g_codes_info_structure_title.tr(),
+                content: LocaleKeys.g_codes_info_structure_content.tr(),
               ),
               const SizedBox(height: 20),
-              const InfoSection(
-                title: "Kody Modalne",
-                content:
-                    "Większość G-kodów jest 'modalna'. Oznacza to, że raz wydana komenda (np. G21 dla milimetrów) pozostaje aktywna aż do momentu, gdy zostanie zmieniona na inną z tej samej grupy (np. G20 dla cali).",
+              InfoSection(
+                title: LocaleKeys.g_codes_info_modal_codes_title.tr(),
+                content: LocaleKeys.g_codes_info_modal_codes_content.tr(),
               ),
               const SizedBox(height: 20),
-              const InfoTipCard(
-                text:
-                    "Pamiętaj: Zawsze sprawdzaj 'bezpieczną linię' na początku programu, aby upewnić się, że maszyna jest w odpowiednim trybie (jednostki, płaszczyzna, pozycjonowanie).",
-              ),
+              InfoTipCard(text: LocaleKeys.g_codes_info_safety_tip.tr()),
               const SizedBox(height: 32),
               SizedBox(
                 width: double.infinity,

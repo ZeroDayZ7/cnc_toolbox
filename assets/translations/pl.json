@@ -12,10 +12,19 @@
     "g_codes": "G Codes"
   },
   "common": {
+    "history": "Ostatnie obliczenia",
     "understand": "Rozumiem",
     "close": "Zamknij",
     "back": "Powrót",
     "no_data": "Brak danych"
+  },
+  "feed_rate": {
+    "arc_parameters": "Parametry łuku",
+    "tool_diameter_label": "Średnica narzędzia (D)",
+    "feature_diameter_label": "Średnica otworu/czopu",
+    "internal_work": "Otwór (Wewnętrzny)",
+    "external_work": "Czop (Zewnętrzny)",
+    "unit_mm": "mm"
   },
   "feed_results": {
     "compensated_feed": "Skompensowany posuw (Vf)",
@@ -23,6 +32,18 @@
     "per_rev": "Na obrót: {} mm/obr",
     "unit_min": "mm/min"
   },
+  "g_codes_info": {
+    "title": "O G-kodach",
+    "description": "G-kody to znormalizowany język programowania używany do sterowania maszynami CNC (frezarkami, tokarkami, drukarkami 3D).",
+    "how_it_works_title": "Jak to działa?",
+    "how_it_works_content": "Każda linia kodu (tzw. blok) instruuje maszynę, co ma zrobić. Litera 'G' zazwyczaj odnosi się do przygotowania geometrii ruchu (G-eometry), czyli mówi maszynie, czy ma jechać po linii prostej, łuku, czy może wykonać cykl wiercenia.",
+    "structure_title": "Struktura komendy",
+    "structure_content": "Typowy blok kodu składa się z litery i wartości liczbowej:\n• G01 – Co robić (Ruch liniowy)\n• X10 Y20 – Gdzie (Współrzędne)\n• F150 – Jak szybko (Posuw/Feedrate)",
+    "modal_codes_title": "Kody Modalne",
+    "modal_codes_content": "Większość G-kodów jest 'modalna'. Oznacza to, że raz wydana komenda (np. G21 dla milimetrów) pozostaje aktywna aż do momentu, gdy zostanie zmieniona na inną z tej samej grupy (np. G20 dla cali).",
+    "safety_tip": "Pamiętaj: Zawsze sprawdzaj 'bezpieczną linię' na początku programu, aby upewnić się, że maszyna jest w odpowiednim trybie (jednostki, płaszczyzna, pozycjonowanie)."
+  },
+
   "descriptions": {
     "cutting_speed": "Oblicz prędkość skrawania na podstawie średnicy i RPM",
     "spindle_rpm": "Oblicz RPM dla materiału i narzędzia",

@@ -1,11 +1,11 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
 import 'package:cnc_toolbox/core/router/app_router.dart';
+import 'package:cnc_toolbox/features/gd&t_symbols/data/symbols_data.dart';
 import 'package:cnc_toolbox/features/gd&t_symbols/widgets/gd_symbols_info_modal.dart';
 import 'package:cnc_toolbox/widgets/app_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../data/symbols_data.dart';
 
 class GdSymbolsPage extends StatelessWidget {
   const GdSymbolsPage({super.key});
@@ -18,13 +18,12 @@ class GdSymbolsPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.info_outline),
-            tooltip: "Co to jest GD&T?",
+            tooltip: LocaleKeys.gd_symbols_modal_title.tr(),
             onPressed: () =>
                 GdSymbolsInfoModal.show(context),
           ),
         ],
       ),
-      // Tu pokazujemy wszystkie symbole w jednej siatce
       body: _buildAllSymbolsGrid(context),
     );
   }
@@ -39,9 +38,7 @@ class GdSymbolsPage extends StatelessWidget {
           mainAxisSpacing: 12,
           crossAxisSpacing: 12,
         ),
-        // Usuń shrinkWrap i NeverScrollableScrollPhysics
         physics: const AlwaysScrollableScrollPhysics(),
-        // shrinkWrap: false domyślnie
         itemBuilder: (context, index) {
           final s = gdSymbolsList[index];
           return InkWell(

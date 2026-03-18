@@ -30,11 +30,10 @@ class FeedHistorySheet extends ConsumerWidget {
 
             return Column(
               children: [
-                const Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Text(
-                    "Ostatnie obliczenia",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                 Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(LocaleKeys.common_history.tr(),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Expanded(

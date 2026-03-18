@@ -1,3 +1,4 @@
+import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
 import 'package:cnc_toolbox/features/gd&t_symbols/domain/gd_symbol_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -74,8 +75,8 @@ Widget build(BuildContext context) {
                 const SizedBox(width: 8),
                 Text(
                   symbol.requiresDatum
-                      ? "gd_symbols.details.requires_datum".tr()
-                      : "gd_symbols.details.no_datum".tr(),
+                      ? LocaleKeys.gd_symbols_details_requires_datum.tr()
+                      : LocaleKeys.gd_symbols_details_no_datum.tr(),
                   style: TextStyle(
                     color: symbol.requiresDatum ? Colors.orange : Colors.grey[700],
                     fontWeight: FontWeight.bold,
@@ -91,7 +92,7 @@ Widget build(BuildContext context) {
           Text(
             symbol.description.tr(),
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              height: 1.5, // Większy interlinia dla czytelności
+              height: 1.5,
             ),
             textAlign: TextAlign.center,
           ),

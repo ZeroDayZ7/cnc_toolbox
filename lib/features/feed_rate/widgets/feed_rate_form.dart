@@ -1,7 +1,9 @@
+import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
 import 'package:cnc_toolbox/core/utils/app_number_formatter.dart';
 import 'package:cnc_toolbox/features/feed_rate/application/feed_rate_provider.dart';
 import 'package:cnc_toolbox/features/feed_rate/domain/feed_type.dart'; // Dodaj import enuma
 import 'package:cnc_toolbox/widgets/custom_field.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -26,7 +28,6 @@ class _FeedRateFormState extends ConsumerState<FeedRateForm> {
   @override
   void initState() {
     super.initState();
-    // Riverpod automatycznie rozpozna typ dzięki zmianie w parametrze build
     final s = ref.read(feedRateProvider(widget.type));
     _nController = TextEditingController(text: _fmt(s.spindleSpeed));
     _zController = TextEditingController(text: s.numberOfTeeth.toString());
@@ -63,7 +64,6 @@ class _FeedRateFormState extends ConsumerState<FeedRateForm> {
       child: Column(
         children: [
           ResultCard(
-            // Używamy enuma do warunku
             vf: widget.type == FeedType.basic
                 ? state.resultVf
                 : state.resultVfArc,
@@ -80,20 +80,19 @@ class _FeedRateFormState extends ConsumerState<FeedRateForm> {
           // Warunek oparty na enumie
           if (widget.type == FeedType.arc) ...[
             const Divider(height: 40),
-            const Text(
-              "Parametry łuku",
-              style: TextStyle(fontWeight: FontWeight.bold),
+            Text(LocaleKeys.feed_rate_arc_parameters.tr(),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
             CustomField(
-              label: "Średnica narzędzia (D)",
+              label: LocaleKeys.feed_rate_tool_diameter_label.tr(),
               suffix: "mm",
               controller: _toolDiaController,
               onChanged: notifier.updateToolDia,
             ),
             const SizedBox(height: 10),
             CustomField(
-              label: "Średnica otworu/czopu",
+              label: LocaleKeys.feed_rate_feature_diameter_label.tr(),
               suffix: "mm",
               controller: _featDiaController,
               onChanged: notifier.updateFeatureDia,
@@ -101,7 +100,9 @@ class _FeedRateFormState extends ConsumerState<FeedRateForm> {
             const SizedBox(height: 10),
             SwitchListTile(
               title: Text(
-                state.isInternal ? "Otwór (Wewnętrzny)" : "Czop (Zewnętrzny)",
+                state.isInternal
+                    ? LocaleKeys.feed_rate_internal_work.tr()
+                    : LocaleKeys.feed_rate_external_work.tr(),
               ),
               value: state.isInternal,
               onChanged: (val) => notifier.toggleWorkType(val),

@@ -3,7 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class GdSymbolsInfoModal extends StatelessWidget {
-  const GdSymbolsInfoModal._(); // Prywatny konstruktor
+  const GdSymbolsInfoModal._();
 
   static void show(BuildContext context) {
     showModalBottomSheet(
@@ -47,21 +47,20 @@ class _Content extends StatelessWidget {
               ),
             ),
             Text(
-              "Czym jest GD&T?",
+              LocaleKeys.gd_symbols_modal_title.tr(),
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Theme.of(context).colorScheme.primary,
               ),
             ),
             const SizedBox(height: 16),
-            const Text(
-              "GD&T (Geometric Dimensioning and Tolerancing) to system symboli służący do precyzyjnego definiowania dopuszczalnych odchyłek kształtu, osiowości, bicia i położenia elementów na rysunku technicznym.",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            Text(
+              LocaleKeys.gd_symbols_modal_p1.tr(),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
-            const Text(
-              "W odróżnieniu od zwykłych tolerancji wymiarowych, GD&T pozwala kontrolować geometrię detalu, co jest kluczowe dla poprawnego montażu i działania maszyn.",
-              style: TextStyle(fontSize: 16),
+            Text(LocaleKeys.gd_symbols_modal_p2.tr(),
+              style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 24),
             SizedBox(
