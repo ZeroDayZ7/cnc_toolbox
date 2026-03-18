@@ -49,7 +49,7 @@ class ToleranceInputForm extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: LocaleKeys.tolerance_nominal_diameter.tr(),
                 suffixText: LocaleKeys.tolerance_unit_mm.tr(),
-                prefixIcon: Icon(Icons.straighten),
+                prefixIcon: const Icon(Icons.straighten),
               ),
               onChanged: (_) => onChanged(),
             ),

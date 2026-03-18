@@ -8,8 +8,8 @@ part of 'tolerance_models.dart';
 
 _ToleranceRange _$ToleranceRangeFromJson(Map<String, dynamic> json) =>
     _ToleranceRange(
-      min: (json['min'] as num).toDouble(),
-      max: (json['max'] as num).toDouble(),
+      min: (json['min'] as num?)?.toDouble() ?? 0.0,
+      max: (json['max'] as num?)?.toDouble() ?? 0.0,
       upper: (json['upper'] as num?)?.toDouble(),
       lower: (json['lower'] as num?)?.toDouble(),
       restrictionKey: json['restriction_key'] as String?,

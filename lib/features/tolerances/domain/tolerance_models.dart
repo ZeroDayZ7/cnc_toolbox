@@ -6,10 +6,10 @@ part 'tolerance_models.g.dart';
 enum ToleranceType { hole, shaft }
 
 @freezed
-abstract class ToleranceRange with _$ToleranceRange {
+sealed class ToleranceRange with _$ToleranceRange {
   const factory ToleranceRange({
-    required double min,
-    required double max,
+    @Default(0.0) double min,
+    @Default(0.0) double max,
     double? upper,
     double? lower,
     @JsonKey(name: 'restriction_key') String? restrictionKey,
@@ -21,12 +21,12 @@ abstract class ToleranceRange with _$ToleranceRange {
 }
 
 @freezed
-abstract class ToleranceResult with _$ToleranceResult {
+sealed class ToleranceResult with _$ToleranceResult {
   const factory ToleranceResult({
-    required double? upperDeviation,
-    required double? lowerDeviation,
-    required double? minSize,
-    required double? maxSize,
+    double? upperDeviation,
+    double? lowerDeviation,
+    double? minSize,
+    double? maxSize,
     String? restrictionKey,
     String? infoKey,
   }) = _ToleranceResult;

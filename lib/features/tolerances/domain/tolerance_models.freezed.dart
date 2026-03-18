@@ -120,10 +120,7 @@ return $default(_that);case _:
 final _that = this;
 switch (_that) {
 case _ToleranceRange():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -182,10 +179,7 @@ return $default(_that.min,_that.max,_that.upper,_that.lower,_that.restrictionKey
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( double min,  double max,  double? upper,  double? lower, @JsonKey(name: 'restriction_key')  String? restrictionKey, @JsonKey(name: 'info_key')  String? infoKey)  $default,) {final _that = this;
 switch (_that) {
 case _ToleranceRange():
-return $default(_that.min,_that.max,_that.upper,_that.lower,_that.restrictionKey,_that.infoKey);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that.min,_that.max,_that.upper,_that.lower,_that.restrictionKey,_that.infoKey);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -214,11 +208,11 @@ return $default(_that.min,_that.max,_that.upper,_that.lower,_that.restrictionKey
 @JsonSerializable()
 
 class _ToleranceRange implements ToleranceRange {
-  const _ToleranceRange({required this.min, required this.max, this.upper, this.lower, @JsonKey(name: 'restriction_key') this.restrictionKey, @JsonKey(name: 'info_key') this.infoKey});
+  const _ToleranceRange({this.min = 0.0, this.max = 0.0, this.upper, this.lower, @JsonKey(name: 'restriction_key') this.restrictionKey, @JsonKey(name: 'info_key') this.infoKey});
   factory _ToleranceRange.fromJson(Map<String, dynamic> json) => _$ToleranceRangeFromJson(json);
 
-@override final  double min;
-@override final  double max;
+@override@JsonKey() final  double min;
+@override@JsonKey() final  double max;
 @override final  double? upper;
 @override final  double? lower;
 @override@JsonKey(name: 'restriction_key') final  String? restrictionKey;
@@ -395,10 +389,7 @@ return $default(_that);case _:
 final _that = this;
 switch (_that) {
 case _ToleranceResult():
-return $default(_that);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
 ///
@@ -457,10 +448,7 @@ return $default(_that.upperDeviation,_that.lowerDeviation,_that.minSize,_that.ma
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( double? upperDeviation,  double? lowerDeviation,  double? minSize,  double? maxSize,  String? restrictionKey,  String? infoKey)  $default,) {final _that = this;
 switch (_that) {
 case _ToleranceResult():
-return $default(_that.upperDeviation,_that.lowerDeviation,_that.minSize,_that.maxSize,_that.restrictionKey,_that.infoKey);case _:
-  throw StateError('Unexpected subclass');
-
-}
+return $default(_that.upperDeviation,_that.lowerDeviation,_that.minSize,_that.maxSize,_that.restrictionKey,_that.infoKey);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -489,7 +477,7 @@ return $default(_that.upperDeviation,_that.lowerDeviation,_that.minSize,_that.ma
 
 
 class _ToleranceResult implements ToleranceResult {
-  const _ToleranceResult({required this.upperDeviation, required this.lowerDeviation, required this.minSize, required this.maxSize, this.restrictionKey, this.infoKey});
+  const _ToleranceResult({this.upperDeviation, this.lowerDeviation, this.minSize, this.maxSize, this.restrictionKey, this.infoKey});
   
 
 @override final  double? upperDeviation;

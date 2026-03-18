@@ -19,3 +19,15 @@ class AppInfo {
   static const contactEmail = 'support@velocnc.com';
   static const websiteUrl = 'https://velocnc.com';
 }
+
+/// --- ASSETS ---
+class AppAssets {
+  static const tolerancesJson = 'assets/data/tolerances.json';
+}
+
+/// --- PREFERENCES KEYS ---
+class PreferencesKeys {
+  static const isDarkMode = 'is_dark_mode';
+  static const sidebarExpanded = 'sidebar_expanded';
+  static const unitsKeyPrefix = 'units_';
+}

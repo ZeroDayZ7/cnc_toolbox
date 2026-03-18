@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppInfo.appName),
+        title: const Text(AppInfo.appName),
         automaticallyImplyLeading: false,
         actions: [
           IconButton(

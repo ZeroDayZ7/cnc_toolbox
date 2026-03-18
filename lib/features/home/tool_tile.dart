@@ -48,7 +48,7 @@ class ToolTile extends StatelessWidget {
 
               Text(
                 description.tr(),
-                style: TextStyle(fontSize: 12, color: const Color.fromARGB(255, 180, 180, 180)),
+                style: const TextStyle(fontSize: 12, color: Color.fromARGB(255, 180, 180, 180)),
                 textAlign: TextAlign.center,
               ),
             ],

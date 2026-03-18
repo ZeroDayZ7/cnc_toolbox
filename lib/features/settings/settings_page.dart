@@ -29,7 +29,7 @@ class SettingsPage extends ConsumerWidget {
         children: [
           _SettingsContainer(
             title: LocaleKeys.appearance.tr(),
-            child: DarkModeSwitch(),
+            child: const DarkModeSwitch(),
           ),
           const SizedBox(height: 16),
 
@@ -60,7 +60,7 @@ class SettingsPage extends ConsumerWidget {
 
           _SettingsContainer(
             title: LocaleKeys.about.tr(),
-            child: AboutSection(),
+            child: const AboutSection(),
           ),
         ],
       ),

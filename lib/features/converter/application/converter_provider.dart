@@ -1,4 +1,4 @@
-
+import 'package:cnc_toolbox/core/utils/app_number_formatter.dart';
 import 'package:cnc_toolbox/features/converter/domain/converter_state.dart';
 import 'package:cnc_toolbox/features/converter/models/converter_category.dart';
 import 'package:cnc_toolbox/features/converter/models/unit_model.dart';
@@ -17,7 +17,7 @@ class ConverterNotifier extends _$ConverterNotifier {
       return;
     }
 
-    final inputValue = double.tryParse(value.replaceAll(',', '.'));
+    final inputValue = AppNumberFormatter.tryParse(value);
     if (inputValue == null) return;
 
     final Map<String, String> newValues = {};
@@ -31,12 +31,23 @@ class ConverterNotifier extends _$ConverterNotifier {
     state = state.copyWith(values: newValues);
   }
 
-  void _handleTemperature(double val, String uid, String orig, List<UnitDefinition> units, Map<String, String> out) {
+  void _handleTemperature(
+    double val,
+    String uid,
+    String orig,
+    List<UnitDefinition> units,
+    Map<String, String> out,
+  ) {
     double celsius;
     switch (uid) {
-      case 'fahrenheit': celsius = (val - 32) / 1.8; break;
-      case 'kelvin': celsius = val - 273.15; break;
-      default: celsius = val;
+      case 'fahrenheit':
+        celsius = (val - 32) / 1.8;
+        break;
+      case 'kelvin':
+        celsius = val - 273.15;
+        break;
+      default:
+        celsius = val;
     }
 
     for (final u in units) {
@@ -45,25 +56,34 @@ class ConverterNotifier extends _$ConverterNotifier {
       } else {
         double conv;
         switch (u.id) {
-          case 'fahrenheit': conv = (celsius * 1.8) + 32; break;
-          case 'kelvin': conv = celsius + 273.15; break;
-          default: conv = celsius;
+          case 'fahrenheit':
+            conv = (celsius * 1.8) + 32;
+            break;
+          case 'kelvin':
+            conv = celsius + 273.15;
+            break;
+          default:
+            conv = celsius;
         }
-        out[u.id] = _format(conv);
+        out[u.id] = AppNumberFormatter.format(conv);
       }
     }
   }
 
-  void _handleLinear(double val, String uid, String orig, List<UnitDefinition> units, Map<String, String> out) {
+  void _handleLinear(
+    double val,
+    String uid,
+    String orig,
+    List<UnitDefinition> units,
+    Map<String, String> out,
+  ) {
     final current = units.firstWhere((u) => u.id == uid);
     final base = val * current.ratio;
 
     for (final u in units) {
-      out[u.id] = u.id == uid ? orig : _format(base / u.ratio);
+      out[u.id] = u.id == uid
+          ? orig
+          : AppNumberFormatter.format(base / u.ratio);
     }
-  }
-
-  String _format(double v) {
-    return v.toStringAsFixed(6).replaceAll(RegExp(r'([.]*0+)(?!.*\d)'), '').replaceAll(RegExp(r'\.$'), '');
   }
 }

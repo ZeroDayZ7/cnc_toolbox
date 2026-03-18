@@ -10,20 +10,20 @@ class FeedRatePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
+    return const DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: CncAppBar(
           titleKey: LocaleKeys.tools_feed_rate,
-          actions: [const FeedRateActions()],
-          bottom: const TabBar(
+          actions: [FeedRateActions()],
+          bottom: TabBar(
             tabs: [
               Tab(text: "Podstawowy", icon: Icon(Icons.calculate)),
               Tab(text: "Łuk / Otwór", icon: Icon(Icons.refresh)),
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
             FeedRateForm(type: "basic"),
             FeedRateForm(type: "arc"),

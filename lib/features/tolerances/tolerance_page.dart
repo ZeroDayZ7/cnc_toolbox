@@ -74,7 +74,7 @@ class _TolerancePageState extends ConsumerState<TolerancePage> {
     final serviceAsync = ref.watch(toleranceServiceProvider);
 
     return Scaffold(
-      appBar: CncAppBar(titleKey: LocaleKeys.tools_tolerances),
+      appBar: const CncAppBar(titleKey: LocaleKeys.tools_tolerances),
       body: serviceAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, stack) => Center(child: Text(err.toString())),

@@ -21,6 +21,9 @@ dart run flutter_launcher_icons:main
 dart run build_runner build --delete-conflicting-outputs
 dart run scripts/generate_locale_keys.dart
 
+# Jeśli chcesz szybko  błędy
+dart fix --apply
+
 # Release
 
 flutter build apk --obfuscate --split-debug-info=./debug_info

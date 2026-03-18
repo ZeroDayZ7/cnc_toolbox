@@ -116,38 +116,38 @@ class SpindleSpeedPage extends StatelessWidget {
             Card(
               color: Colors.grey[100],
               elevation: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
+              child: const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Wyniki',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    SizedBox(height: 12),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         Text('Prędkość skrawania Vc [m/min]:'),
                         Text('---'),
                       ],
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
+                      children: [
                         Text('Obroty wrzeciona n [obr/min]:'),
                         Text('---'),
                       ],
                     ),
-                    const SizedBox(height: 8),
+                    SizedBox(height: 8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [Text('Posuw f [mm/obr]:'), Text('---')],
+                      children: [Text('Posuw f [mm/obr]:'), Text('---')],
                     ),
                   ],
                 ),
