@@ -7,7 +7,9 @@
     "database_init": "ŁADOWANIE BAZY DANYCH...",
     "settings_load": "WCZYTYWANIE USTAWIEŃ...",
     "loading": "PROSZĘ CZEKAĆ...",
-    "starting": "URUCHAMIANIE..."
+    "starting": "URUCHAMIANIE...",
+    "retry": "SPRÓBUJ PONOWNIE",
+    "error_title": "BŁĄD SYSTEMU"
   },
   "tools": {
     "cutting_speed": "Cutting Speed",

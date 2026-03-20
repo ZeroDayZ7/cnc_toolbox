@@ -14,14 +14,12 @@ void main() {
     );
 
     setUp(() async {
-      await initializeDateFormatting('pl_PL', null);
-      Intl.defaultLocale = 'pl_PL';
+      await initializeDateFormatting('pl', null);
+      Intl.defaultLocale = 'pl';
       container = ProviderContainer();
     });
 
-    tearDown(() {
-      container.dispose();
-    });
+    tearDown(() => container.dispose());
 
     test('initial state should be empty', () {
       final state = container.read(converterProvider(lengthCategory));
@@ -34,11 +32,9 @@ void main() {
         final notifier = container.read(
           converterProvider(lengthCategory).notifier,
         );
-
         notifier.updateValue('m', '1', lengthCategory.units);
 
         final state = container.read(converterProvider(lengthCategory));
-
         final formatter = NumberFormat('#,###', 'pl_PL');
 
         expect(state.values['m'], '1');
@@ -56,6 +52,57 @@ void main() {
 
       final state = container.read(converterProvider(lengthCategory));
       expect(state.values, isEmpty);
+    });
+
+    test('invalid numeric input should clear state values safely', () {
+      final notifier = container.read(
+        converterProvider(lengthCategory).notifier,
+      );
+
+      notifier.updateValue('m', '10', lengthCategory.units);
+      notifier.updateValue('m', '1.2.3.invalid', lengthCategory.units);
+
+      final state = container.read(converterProvider(lengthCategory));
+      expect(state.values, isEmpty);
+    });
+
+    test(
+      'decimal input with comma should be parsed correctly in PL locale',
+      () {
+        final notifier = container.read(
+          converterProvider(lengthCategory).notifier,
+        );
+
+        notifier.updateValue('m', '1,5', lengthCategory.units);
+
+        final state = container.read(converterProvider(lengthCategory));
+        expect(state.values['mm'], '1 500');
+      },
+    );
+
+    test(
+      'extreme large values should be formatted with thousands separator',
+      () {
+        final notifier = container.read(
+          converterProvider(lengthCategory).notifier,
+        );
+
+        notifier.updateValue('m', '1000', lengthCategory.units);
+
+        final state = container.read(converterProvider(lengthCategory));
+        expect(state.values['mm'], '1 000 000');
+      },
+    );
+
+    test('switching between units should maintain calculation precision', () {
+      final notifier = container.read(
+        converterProvider(lengthCategory).notifier,
+      );
+
+      notifier.updateValue('mm', '25.4', lengthCategory.units);
+
+      final state = container.read(converterProvider(lengthCategory));
+      expect(state.values['m'], '0,0254');
     });
   });
 }

@@ -10,6 +10,8 @@ abstract class  LocaleKeys {
   static const splash_settings_load = 'splash.settings_load';
   static const splash_loading = 'splash.loading';
   static const splash_starting = 'splash.starting';
+  static const splash_retry = 'splash.retry';
+  static const splash_error_title = 'splash.error_title';
   static const splash = 'splash';
   static const tools_cutting_speed = 'tools.cutting_speed';
   static const tools_spindle_rpm = 'tools.spindle_rpm';

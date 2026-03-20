@@ -1,5 +1,6 @@
 import 'package:cnc_toolbox/core/app/app_init_provider.dart';
 import 'package:cnc_toolbox/core/app/app_init_status.dart';
+import 'package:cnc_toolbox/core/app/presentation/error_app.dart';
 import 'package:cnc_toolbox/core/app/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -28,8 +29,7 @@ class _AppBootstrapHandlerState extends ConsumerState<AppBootstrapHandler> {
 
     return status.when(
       loading: (key) => const SplashScreen(),
-      blocked: (reason) =>
-          Scaffold(body: Center(child: Text('Błąd krytyczny: $reason'))),
+      blocked: (reason) => ErrorApp(error: reason ?? 'Unknown System Failure'),
       ready: () => widget.child,
     );
   }

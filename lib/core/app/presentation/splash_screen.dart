@@ -54,7 +54,7 @@ class SplashScreen extends ConsumerWidget {
             const Opacity(
               opacity: 0.4,
               child: Text(
-                'VER ${AppInfo.appVersion}',
+                'VERSION ${AppInfo.appVersion}',
                 style: TextStyle(color: Colors.white, fontSize: 10),
               ),
             ),
