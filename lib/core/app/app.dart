@@ -1,3 +1,4 @@
+import 'package:cnc_toolbox/core/app/bootstrap_handler.dart';
 import 'package:cnc_toolbox/core/constants/constants.dart';
 import 'package:cnc_toolbox/core/localization/locale_notifier.dart';
 import 'package:cnc_toolbox/core/router/app_router.dart';
@@ -19,16 +20,16 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       title: AppInfo.appName,
       debugShowCheckedModeBanner: false,
-
       routerConfig: router,
-
       locale: context.locale,
       supportedLocales: context.supportedLocales,
       localizationsDelegates: context.localizationDelegates,
-
       themeMode: themeMode,
-      theme: lightTheme,
-      darkTheme: darkTheme,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      builder: (context, child) {
+        return AppBootstrapHandler(child: child!);
+      },
     );
   }
 }

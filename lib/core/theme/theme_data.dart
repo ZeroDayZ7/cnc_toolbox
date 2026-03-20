@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
 
-const _inputDecorationTheme = InputDecorationTheme(
-  border: OutlineInputBorder(),
-  contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-);
+import 'app_colors.dart';
+import 'app_design.dart';
 
-final lightTheme = ThemeData(
-  brightness: Brightness.light,
-  colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-  useMaterial3: true,
-  inputDecorationTheme: _inputDecorationTheme,
-);
+class AppTheme {
+  // Dodajemy parametr Brightness do gettera
+  static InputDecorationTheme _inputTheme(Brightness brightness) =>
+      InputDecorationTheme(
+        prefixIconColor: AppColors.primary,
+        suffixIconColor: AppColors.primary,
+        filled: true,
+        fillColor: brightness == Brightness.dark
+            ? AppColors.surfaceDark
+            : Colors.white,
+        border: OutlineInputBorder(borderRadius: AppRadii.radiusM),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: AppSpacings.m,
+          vertical: AppSpacings.m,
+        ),
+      );
 
-final darkTheme = ThemeData(
-  brightness: Brightness.dark,
-  colorScheme: ColorScheme.fromSeed(
-    seedColor: Colors.blue,
+  static ThemeData get light => ThemeData(
+    useMaterial3: true,
+    brightness: Brightness.light,
+    colorSchemeSeed: AppColors.primary,
+    inputDecorationTheme: _inputTheme(Brightness.light),
+  );
+
+  static ThemeData get dark => ThemeData(
+    useMaterial3: true,
     brightness: Brightness.dark,
-  ),
-  useMaterial3: true,
-  inputDecorationTheme: _inputDecorationTheme,
-);
+    colorSchemeSeed: AppColors.primary,
+    scaffoldBackgroundColor: AppColors.bgDark,
+    inputDecorationTheme: _inputTheme(Brightness.dark),
+  );
+}

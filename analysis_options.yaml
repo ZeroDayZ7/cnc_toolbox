@@ -32,3 +32,6 @@ linter:
     - prefer_interpolation_to_compose_strings
     - annotate_overrides
     - prefer_const_constructors
+
+dart:
+  line-length: 80
