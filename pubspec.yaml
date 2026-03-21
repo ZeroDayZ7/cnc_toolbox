@@ -45,7 +45,7 @@ flutter:
   assets:
     - assets/images/
     - assets/translations/
-    - assets/data/tolerances.json
+    - assets/data/
     - assets/images/gd_t_symbols/
 
 flutter_launcher_icons:

@@ -1,5 +1,6 @@
 import 'package:cnc_toolbox/core/constants/constants.dart';
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/core/router/app_router.dart';
 import 'package:cnc_toolbox/features/home/tools_list.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,7 @@ class CncDrawer extends StatelessWidget {
               itemCount: tools.length,
               itemBuilder: (context, index) {
                 final tool = tools[index];
-                final isSelected = location == tool.route;
+                final isSelected = location == tool.route.location;
 
                 return ListTile(
                   leading: Icon(
@@ -75,7 +76,7 @@ class CncDrawer extends StatelessWidget {
                   selectedTileColor: Colors.blueAccent.withValues(alpha: 0.1),
                   onTap: () {
                     context.pop();
-                    context.go(tool.route);
+                    tool.route.go(context);
                   },
                 );
               },
@@ -89,7 +90,7 @@ class CncDrawer extends StatelessWidget {
             title: Text(LocaleKeys.settings.tr()),
             onTap: () {
               context.pop();
-              context.push('/settings');
+              const SettingsRoute().push(context);
             },
           ),
           const SizedBox(height: 10),

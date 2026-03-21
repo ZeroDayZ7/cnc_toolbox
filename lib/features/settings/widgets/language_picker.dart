@@ -36,10 +36,12 @@ class LanguagePicker extends ConsumerWidget {
                     color: Theme.of(context).colorScheme.primary,
                   )
                 : null,
-            onTap: () {
-              // Używamy naszego Notifiera do zmiany
-              ref.read(localeProvider.notifier).changeLanguage(context, lang);
-              Navigator.pop(context);
+            onTap: () async {
+              final navigator = Navigator.of(context);
+              ref.read(localeProvider.notifier).setLocale(lang);
+              await context.setLocale(lang.locale);
+
+              navigator.pop();
             },
           );
         }),

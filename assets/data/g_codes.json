@@ -1,0 +1,159 @@
+[
+  {
+    "code": "G00",
+    "titleKey": "gcodes.g00_title",
+    "descriptionKey": "gcodes.g00_desc",
+    "example": "G00 X50 Z10"
+  },
+  {
+    "code": "G01",
+    "titleKey": "gcodes.g01_title",
+    "descriptionKey": "gcodes.g01_desc",
+    "example": "G01 X50 Z-10 F0.2"
+  },
+  {
+    "code": "G02",
+    "titleKey": "gcodes.g02_title",
+    "descriptionKey": "gcodes.g02_desc",
+    "example": "G02 X50 Y20 I10 J0"
+  },
+  {
+    "code": "G03",
+    "titleKey": "gcodes.g03_title",
+    "descriptionKey": "gcodes.g03_desc",
+    "example": "G03 X50 Y20 I10 J0"
+  },
+  {
+    "code": "G04",
+    "titleKey": "gcodes.g04_title",
+    "descriptionKey": "gcodes.g04_desc",
+    "example": "G04 P2000 (2s)"
+  },
+  {
+    "code": "G17",
+    "titleKey": "gcodes.g17_title",
+    "descriptionKey": "gcodes.g17_desc",
+    "example": "G17"
+  },
+  {
+    "code": "G18",
+    "titleKey": "gcodes.g18_title",
+    "descriptionKey": "gcodes.g18_desc",
+    "example": "G18"
+  },
+  {
+    "code": "G19",
+    "titleKey": "gcodes.g19_title",
+    "descriptionKey": "gcodes.g19_desc",
+    "example": "G19"
+  },
+  {
+    "code": "G20",
+    "titleKey": "gcodes.g20_title",
+    "descriptionKey": "gcodes.g20_desc",
+    "example": "G20"
+  },
+  {
+    "code": "G21",
+    "titleKey": "gcodes.g21_title",
+    "descriptionKey": "gcodes.g21_desc",
+    "example": "G21"
+  },
+  {
+    "code": "G28",
+    "titleKey": "gcodes.g28_title",
+    "descriptionKey": "gcodes.g28_desc",
+    "example": "G28 U0 W0"
+  },
+  {
+    "code": "G40",
+    "titleKey": "gcodes.g40_title",
+    "descriptionKey": "gcodes.g40_desc",
+    "example": "G40"
+  },
+  {
+    "code": "G41",
+    "titleKey": "gcodes.g41_title",
+    "descriptionKey": "gcodes.g41_desc",
+    "example": "G41 D1 X20"
+  },
+  {
+    "code": "G42",
+    "titleKey": "gcodes.g42_title",
+    "descriptionKey": "gcodes.g42_desc",
+    "example": "G42 D1 X20"
+  },
+  {
+    "code": "G43",
+    "titleKey": "gcodes.g43_title",
+    "descriptionKey": "gcodes.g43_desc",
+    "example": "G43 H1 Z10"
+  },
+  {
+    "code": "G54",
+    "titleKey": "gcodes.g54_title",
+    "descriptionKey": "gcodes.g54_desc",
+    "example": "G54 X0 Y0"
+  },
+  {
+    "code": "G90",
+    "titleKey": "gcodes.g90_title",
+    "descriptionKey": "gcodes.g90_desc",
+    "example": "G90"
+  },
+  {
+    "code": "G91",
+    "titleKey": "gcodes.g91_title",
+    "descriptionKey": "gcodes.g91_desc",
+    "example": "G91"
+  },
+
+  {
+    "code": "M00",
+    "titleKey": "mcodes.m00_title",
+    "descriptionKey": "mcodes.m00_desc",
+    "example": "M00"
+  },
+  {
+    "code": "M03",
+    "titleKey": "mcodes.m03_title",
+    "descriptionKey": "mcodes.m03_desc",
+    "example": "M03 S1500"
+  },
+  {
+    "code": "M04",
+    "titleKey": "mcodes.m04_title",
+    "descriptionKey": "mcodes.m04_desc",
+    "example": "M04 S1500"
+  },
+  {
+    "code": "M05",
+    "titleKey": "mcodes.m05_title",
+    "descriptionKey": "mcodes.m05_desc",
+    "example": "M05"
+  },
+  {
+    "code": "M06",
+    "titleKey": "mcodes.m06_title",
+    "descriptionKey": "mcodes.m06_desc",
+    "example": "T1 M06"
+  },
+  {
+    "code": "M08",
+    "titleKey": "mcodes.m08_title",
+    "descriptionKey": "mcodes.m08_desc",
+    "example": "M08"
+  },
+  {
+    "code": "M09",
+    "titleKey": "mcodes.m09_title",
+    "descriptionKey": "mcodes.m09_desc",
+    "example": "M09"
+  },
+  {
+    "code": "M30",
+    "titleKey": "mcodes.m30_title",
+    "descriptionKey": "mcodes.m30_desc",
+    "example": "M30"
+  }
+]

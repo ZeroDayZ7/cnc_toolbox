@@ -20,7 +20,7 @@ final class ToleranceControllerProvider
         argument: null,
         retry: null,
         name: r'toleranceControllerProvider',
-        isAutoDispose: true,
+        isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
@@ -42,7 +42,7 @@ final class ToleranceControllerProvider
 }
 
 String _$toleranceControllerHash() =>
-    r'ae42372a87f5acc560b9fd95cce4409a9a43ab36';
+    r'e29ef5c5d7af983d3ad9baf7316aed0bbfcb17bf';
 
 abstract class _$ToleranceController extends $Notifier<TolerancePageState> {
   TolerancePageState build();

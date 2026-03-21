@@ -4,7 +4,6 @@ import 'package:cnc_toolbox/features/home/cnc_drawer.dart';
 import 'package:cnc_toolbox/features/home/tool_tile.dart';
 import 'package:cnc_toolbox/features/home/tools_list.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -47,7 +46,7 @@ class HomePage extends StatelessWidget {
                   icon: tool.icon,
                   label: tool.labelKey,
                   description: tool.descriptionKey,
-                  onTap: () => context.go(tool.route),
+                  onTap: () => tool.route.go(context),
                 );
               },
             );

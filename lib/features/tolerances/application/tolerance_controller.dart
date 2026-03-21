@@ -1,3 +1,4 @@
+import 'package:cnc_toolbox/core/constants/constants.dart';
 import 'package:cnc_toolbox/features/tolerances/application/tolerance_service.dart';
 import 'package:cnc_toolbox/features/tolerances/domain/tolerance_models.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -6,7 +7,7 @@ import 'tolerance_provider.dart';
 
 part 'tolerance_controller.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 class ToleranceController extends _$ToleranceController {
   @override
   TolerancePageState build() {
@@ -18,8 +19,8 @@ class ToleranceController extends _$ToleranceController {
 
   TolerancePageState _initialState(ToleranceService service) {
     final letters = service.getLetters(ToleranceType.hole);
-    final initialLetter = letters.contains('H')
-        ? 'H'
+    final initialLetter = letters.contains(ToleranceDefaults.holeLetter)
+        ? ToleranceDefaults.holeLetter
         : (letters.isNotEmpty ? letters.first : null);
 
     List<String> numbers = [];
@@ -27,8 +28,8 @@ class ToleranceController extends _$ToleranceController {
 
     if (initialLetter != null) {
       numbers = service.getNumbersForLetter(ToleranceType.hole, initialLetter);
-      initialNumber = numbers.contains('7')
-          ? '7'
+      initialNumber = numbers.contains(ToleranceDefaults.grade)
+          ? ToleranceDefaults.grade
           : (numbers.isNotEmpty ? numbers.first : null);
     }
 
@@ -44,11 +45,17 @@ class ToleranceController extends _$ToleranceController {
   void updateType(ToleranceType newType) {
     final service = ref.read(toleranceServiceProvider).requireValue;
     final letters = service.getLetters(newType);
-    final letter = letters.contains('H')
-        ? 'H'
-        : (letters.contains('h')
-              ? 'h'
-              : (letters.isNotEmpty ? letters.first : null));
+
+    String? letter;
+    if (newType == ToleranceType.hole) {
+      letter = letters.contains(ToleranceDefaults.holeLetter)
+          ? ToleranceDefaults.holeLetter
+          : (letters.isNotEmpty ? letters.first : null);
+    } else {
+      letter = letters.contains(ToleranceDefaults.shaftLetter)
+          ? ToleranceDefaults.shaftLetter
+          : (letters.isNotEmpty ? letters.first : null);
+    }
 
     state = state.copyWith(
       type: newType,
@@ -84,8 +91,8 @@ class ToleranceController extends _$ToleranceController {
 
     state = state.copyWith(
       availableNumbers: numbers,
-      selectedNumber: numbers.contains('7')
-          ? '7'
+      selectedNumber: numbers.contains(ToleranceDefaults.grade)
+          ? ToleranceDefaults.grade
           : (numbers.isNotEmpty ? numbers.first : null),
     );
     _calculate();

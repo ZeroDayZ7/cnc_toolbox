@@ -17,9 +17,14 @@ final class AppObserver extends ProviderObserver {
     Object? previousValue,
     Object? newValue,
   ) {
-    debugPrint(
-      '🔄 Provider updated: ${context.provider.name ?? context.provider.runtimeType}',
-    );
+    final name =
+        context.provider.name ?? context.provider.runtimeType.toString();
+    debugPrint('🔄 Provider updated: $name');
+
+    if (newValue.toString().contains('GCodeState')) {
+      debugPrint('   [Content hidden: GCodeState is too large]');
+      return;
+    }
     debugPrint('   previous: $previousValue');
     debugPrint('   new: $newValue');
   }

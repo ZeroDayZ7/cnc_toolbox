@@ -23,6 +23,7 @@ class AppInfo {
 /// --- ASSETS ---
 class AppAssets {
   static const tolerancesJson = 'assets/data/tolerances.json';
+  static const gCodesJson = 'assets/data/g_codes.json';
 }
 
 /// --- PREFERENCES KEYS ---
@@ -30,4 +31,16 @@ class PreferencesKeys {
   static const isDarkMode = 'is_dark_mode';
   static const sidebarExpanded = 'sidebar_expanded';
   static const unitsKeyPrefix = 'units_';
+}
+
+/// --- APP CONFIG ---
+class AppConfig {
+  static const minSplashDuration = Duration(milliseconds: 1500);
+}
+
+/// --- TOLERANCE DEFAULTS ---
+class ToleranceDefaults {
+  static const String holeLetter = 'H';
+  static const String shaftLetter = 'h';
+  static const String grade = '7';
 }

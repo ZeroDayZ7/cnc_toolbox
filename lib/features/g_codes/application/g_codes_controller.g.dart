@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'locale_notifier.dart';
+part of 'g_codes_controller.dart';
 
 // **************************************************************************
 // RiverpodGenerator
@@ -9,51 +9,51 @@ part of 'locale_notifier.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(LocaleNotifier)
-final localeProvider = LocaleNotifierProvider._();
+@ProviderFor(GCodeController)
+final gCodeControllerProvider = GCodeControllerProvider._();
 
-final class LocaleNotifierProvider
-    extends $NotifierProvider<LocaleNotifier, Locale> {
-  LocaleNotifierProvider._()
+final class GCodeControllerProvider
+    extends $NotifierProvider<GCodeController, GCodeState> {
+  GCodeControllerProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'localeProvider',
+        name: r'gCodeControllerProvider',
         isAutoDispose: false,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$localeNotifierHash();
+  String debugGetCreateSourceHash() => _$gCodeControllerHash();
 
   @$internal
   @override
-  LocaleNotifier create() => LocaleNotifier();
+  GCodeController create() => GCodeController();
 
   /// {@macro riverpod.override_with_value}
-  Override overrideWithValue(Locale value) {
+  Override overrideWithValue(GCodeState value) {
     return $ProviderOverride(
       origin: this,
-      providerOverride: $SyncValueProvider<Locale>(value),
+      providerOverride: $SyncValueProvider<GCodeState>(value),
     );
   }
 }
 
-String _$localeNotifierHash() => r'a07296c5264f33415d292947b0d73a3fca0d9f2a';
+String _$gCodeControllerHash() => r'0013db04f74bc1476948af1cce73df40dd4bbad1';
 
-abstract class _$LocaleNotifier extends $Notifier<Locale> {
-  Locale build();
+abstract class _$GCodeController extends $Notifier<GCodeState> {
+  GCodeState build();
   @$mustCallSuper
   @override
   void runBuild() {
-    final ref = this.ref as $Ref<Locale, Locale>;
+    final ref = this.ref as $Ref<GCodeState, GCodeState>;
     final element =
         ref.element
             as $ClassProviderElement<
-              AnyNotifier<Locale, Locale>,
-              Locale,
+              AnyNotifier<GCodeState, GCodeState>,
+              GCodeState,
               Object?,
               Object?
             >;

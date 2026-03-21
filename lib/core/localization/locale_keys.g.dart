@@ -266,6 +266,10 @@ abstract class  LocaleKeys {
   static const error_out_of_range = 'error.out_of_range';
   static const error_page_not_found = 'error.page_not_found';
   static const error_go_home = 'error.go_home';
+  static const error_database_init = 'error.database_init';
+  static const error_assets_missing = 'error.assets_missing';
+  static const error_unknown = 'error.unknown';
+  static const error_no_results = 'error.no_results';
   static const error = 'error';
 
 }

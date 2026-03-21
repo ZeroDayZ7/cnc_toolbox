@@ -294,8 +294,12 @@
   },
   "search_hint": "Search G Code...",
   "error": {
-    "out_of_range": "Diameter out of database range",
-    "page_not_found": "Page not found",
-    "go_home": "Go to Home"
+    "out_of_range": "Średnica poza zakresem bazy danych",
+    "page_not_found": "Strona nie została znaleziona",
+    "go_home": "Powrót do strony głównej",
+    "database_init": "Błąd inicjalizacji bazy danych. Spróbuj zrestartować aplikację.",
+    "assets_missing": "Nie udało się załadować wymaganych danych technicznych.",
+    "unknown": "Wystąpił nieoczekiwany błąd aplikacji.",
+    "no_results": "Nie znaleziono pasujących wyników"
   }
 }

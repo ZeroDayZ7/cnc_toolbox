@@ -5,46 +5,46 @@ import 'package:flutter/material.dart';
 import './tool_item.dart';
 
 final tools = [
-  ToolItem(
+  const ToolItem(
     icon: Icons.speed,
     labelKey: LocaleKeys.tools_cutting_speed,
     descriptionKey: LocaleKeys.descriptions_cutting_speed,
-    route: const CuttingSpeedRoute().location,
+    route: CuttingSpeedRoute(),
   ),
-  ToolItem(
+  const ToolItem(
     icon: Icons.settings,
     labelKey: LocaleKeys.tools_spindle_rpm,
     descriptionKey: LocaleKeys.descriptions_spindle_rpm,
-    route: const SpindleSpeedRoute().location,
+    route: SpindleSpeedRoute(),
   ),
-  ToolItem(
+  const ToolItem(
     icon: Icons.calculate,
     labelKey: LocaleKeys.tools_feed_rate,
     descriptionKey: LocaleKeys.descriptions_feed_rate,
-    route: const FeedRateRoute().location,
+    route: FeedRateRoute(),
   ),
-  ToolItem(
+  const ToolItem(
     icon: Icons.straighten,
     labelKey: LocaleKeys.tools_unit_converter,
     descriptionKey: LocaleKeys.descriptions_unit_converter,
-    route: const ConverterRoute().location,
+    route: ConverterRoute(),
   ),
-  ToolItem(
+  const ToolItem(
     icon: Icons.precision_manufacturing,
     labelKey: LocaleKeys.tools_tolerances,
     descriptionKey: LocaleKeys.descriptions_tolerances,
-    route: const TolerancesRoute().location,
+    route: TolerancesRoute(),
   ),
-  ToolItem(
+  const ToolItem(
     icon: Icons.architecture,
     labelKey: LocaleKeys.tools_gd_symbols,
     descriptionKey: LocaleKeys.descriptions_gd_symbols,
-    route: const GdSymbolsRoute().location,
+    route: GdSymbolsRoute(),
   ),
-  ToolItem(
+  const ToolItem(
     icon: Icons.code,
     labelKey: LocaleKeys.tools_g_codes,
     descriptionKey: LocaleKeys.descriptions_g_codes,
-    route: const GCodesRoute().location,
+    route: GCodesRoute(),
   ),
 ];
