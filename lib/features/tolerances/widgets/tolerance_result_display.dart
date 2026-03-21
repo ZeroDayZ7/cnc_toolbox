@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/features/tolerances/domain/tolerance_models.dart';
 import 'package:cnc_toolbox/widgets/info_components.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -44,7 +45,7 @@ class ToleranceResultDisplay extends StatelessWidget {
             value: "${_formatValue(res.lowerDeviation)} mm",
             color: Colors.red,
           ),
-          const SizedBox(height: 16),
+          AppSpacings.gapM,
           RealSizeCard(
             minSize: _formatValue(res.minSize),
             maxSize: _formatValue(res.maxSize),

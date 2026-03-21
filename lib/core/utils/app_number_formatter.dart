@@ -3,20 +3,24 @@ import 'package:intl/intl.dart';
 class AppNumberFormatter {
   static String get _currentLocale => Intl.getCurrentLocale();
 
-  static NumberFormat get _decimalFormatter =>
-      NumberFormat.decimalPattern(_currentLocale);
-
   static double? tryParse(String value) {
-    if (value.isEmpty) return null;
+    final trimmed = value.trim();
+    if (trimmed.isEmpty) return null;
 
-    // Próba kropki (standard)
-    final standard = double.tryParse(value);
+    final standard = double.tryParse(trimmed);
     if (standard != null) return standard;
 
+    final normalized = trimmed.replaceAll(',', '.');
+    final standardNormalized = double.tryParse(normalized);
+    if (standardNormalized != null) return standardNormalized;
+
     try {
-      return _decimalFormatter.parse(value).toDouble();
-    } catch (_) {
-      return double.tryParse(value.replaceAll(',', '.'));
+      final formatter = NumberFormat.decimalPattern(_currentLocale);
+      return formatter.parse(trimmed).toDouble();
+    } on FormatException {
+      return null;
+    } catch (e) {
+      rethrow;
     }
   }
 

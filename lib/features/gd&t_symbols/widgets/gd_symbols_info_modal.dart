@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -53,7 +54,7 @@ class _Content extends StatelessWidget {
                 color: Theme.of(context).colorScheme.primary,
               ),
             ),
-            const SizedBox(height: 16),
+            AppSpacings.gapM,
             Text(
               LocaleKeys.gd_symbols_modal_p1.tr(),
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

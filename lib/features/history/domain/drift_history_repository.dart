@@ -2,7 +2,6 @@ import 'package:cnc_toolbox/core/database/database.dart';
 import 'package:cnc_toolbox/features/history/domain/i_history_repository.dart';
 import 'package:cnc_toolbox/features/history/models/feed_history_entry.dart';
 
-// drift_history_repository.dart
 class DriftHistoryRepository implements IHistoryRepository {
   final AppDatabase _db;
   DriftHistoryRepository(this._db);
@@ -13,20 +12,7 @@ class DriftHistoryRepository implements IHistoryRepository {
     int offset = 0,
   }) async {
     final rows = await _db.getFeedHistory(limit: limit, offset: offset);
-    return rows
-        .map(
-          (row) => FeedHistoryEntry(
-            id: row.id,
-            spindleSpeed: row.spindleSpeed,
-            feedPerTooth: row.feedPerTooth,
-            teeth: row.teeth,
-            resultVf: row.resultVf,
-            toolDiameter: row.toolDiameter,
-            featureDiameter: row.featureDiameter,
-            createdAt: row.createdAt,
-          ),
-        )
-        .toList();
+    return rows.map((row) => row.toDomain()).toList();
   }
 
   @override
@@ -51,5 +37,20 @@ class DriftHistoryRepository implements IHistoryRepository {
   @override
   Future<void> deleteEntry(int id) async {
     await _db.deleteFeedEntry(id);
+  }
+}
+
+extension on FeedCalculation {
+  FeedHistoryEntry toDomain() {
+    return FeedHistoryEntry(
+      id: id,
+      spindleSpeed: spindleSpeed,
+      feedPerTooth: feedPerTooth,
+      teeth: teeth,
+      resultVf: resultVf,
+      toolDiameter: toolDiameter,
+      featureDiameter: featureDiameter,
+      createdAt: createdAt,
+    );
   }
 }

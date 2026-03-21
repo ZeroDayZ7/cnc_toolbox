@@ -162,3 +162,80 @@ final class AdjustedFeedRateFamily extends $Family
   @override
   String toString() => r'adjustedFeedRateProvider';
 }
+
+@ProviderFor(feedRateF)
+final feedRateFProvider = FeedRateFFamily._();
+
+final class FeedRateFProvider
+    extends $FunctionalProvider<double, double, double>
+    with $Provider<double> {
+  FeedRateFProvider._({
+    required FeedRateFFamily super.from,
+    required FeedType super.argument,
+  }) : super(
+         retry: null,
+         name: r'feedRateFProvider',
+         isAutoDispose: false,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$feedRateFHash();
+
+  @override
+  String toString() {
+    return r'feedRateFProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  $ProviderElement<double> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  double create(Ref ref) {
+    final argument = this.argument as FeedType;
+    return feedRateF(ref, argument);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(double value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<double>(value),
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FeedRateFProvider && other.argument == argument;
+  }
+
+  @override
+  int get hashCode {
+    return argument.hashCode;
+  }
+}
+
+String _$feedRateFHash() => r'a67e8d09383e8117d7435a731517e271a07008ca';
+
+final class FeedRateFFamily extends $Family
+    with $FunctionalFamilyOverride<double, FeedType> {
+  FeedRateFFamily._()
+    : super(
+        retry: null,
+        name: r'feedRateFProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: false,
+      );
+
+  FeedRateFProvider call(FeedType type) =>
+      FeedRateFProvider._(argument: type, from: this);
+
+  @override
+  String toString() => r'feedRateFProvider';
+}

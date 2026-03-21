@@ -1,4 +1,6 @@
+import 'package:cnc_toolbox/core/constants/constants.dart';
 import 'package:cnc_toolbox/core/theme/app_design.dart';
+import 'package:cnc_toolbox/core/utils/responsive_utils.dart';
 import 'package:flutter/material.dart';
 
 import 'responsive_container.dart';
@@ -25,50 +27,41 @@ class AppScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final isDesktop = constraints.maxWidth > 900;
+    final isDesktop = context.isDesktop;
 
-        Widget content = ResponsiveContainer(
-          size: size,
-          child: scrollable ? SingleChildScrollView(child: child) : child,
-        );
+    Widget content = ResponsiveContainer(
+      size: size,
+      child: scrollable ? SingleChildScrollView(child: child) : child,
+    );
 
-        if (useSafeArea) content = SafeArea(child: content);
+    if (useSafeArea) content = SafeArea(child: content);
 
-        if (isDesktop) {
-          // Widok Desktop: Sidebar na stałe po lewej
-          return Scaffold(
-            body: Row(
-              children: [
-                if (sidebar != null) SizedBox(width: 280, child: sidebar),
-                if (sidebar != null) const VerticalDivider(width: 1),
-                Expanded(
-                  child: Scaffold(
-                    appBar: title != null
-                        ? AppBar(
-                            title: title,
-                            actions: actions,
-                            centerTitle: false,
-                          )
-                        : null,
-                    body: content,
-                  ),
-                ),
-              ],
+    if (isDesktop) {
+      return Scaffold(
+        body: Row(
+          children: [
+            if (sidebar != null)
+              SizedBox(width: AppBreakpoints.sidebarWidth, child: sidebar),
+            if (sidebar != null) const VerticalDivider(width: 1),
+            Expanded(
+              child: Scaffold(
+                appBar: title != null
+                    ? AppBar(title: title, actions: actions, centerTitle: false)
+                    : null,
+                body: content,
+              ),
             ),
-          );
-        }
+          ],
+        ),
+      );
+    }
 
-        // Widok Mobile: Sidebar w Drawerze
-        return Scaffold(
-          appBar: title != null
-              ? AppBar(title: title, actions: actions, centerTitle: true)
-              : null,
-          drawer: sidebar != null ? Drawer(child: sidebar) : null,
-          body: content,
-        );
-      },
+    return Scaffold(
+      appBar: title != null
+          ? AppBar(title: title, actions: actions, centerTitle: true)
+          : null,
+      drawer: sidebar != null ? Drawer(child: sidebar) : null,
+      body: content,
     );
   }
 }

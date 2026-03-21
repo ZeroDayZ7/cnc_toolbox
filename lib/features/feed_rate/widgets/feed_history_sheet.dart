@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/features/feed_rate/application/feed_rate_provider.dart';
 import 'package:cnc_toolbox/features/feed_rate/domain/feed_type.dart';
 import 'package:cnc_toolbox/features/history/domain/history_notifier.dart';
@@ -27,7 +28,7 @@ class FeedHistorySheet extends ConsumerWidget {
           data: (history) => Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: AppSpacings.edgeInsetsM,
                 child: Text(
                   LocaleKeys.common_history.tr(),
                   style: const TextStyle(

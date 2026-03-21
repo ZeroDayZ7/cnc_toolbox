@@ -13,8 +13,13 @@ part of 'app_init_provider.dart';
 final appInitProvider = AppInitProvider._();
 
 final class AppInitProvider
-    extends $FunctionalProvider<AsyncValue<void>, void, FutureOr<void>>
-    with $FutureModifier<void>, $FutureProvider<void> {
+    extends
+        $FunctionalProvider<
+          AsyncValue<Result<void>>,
+          Result<void>,
+          FutureOr<Result<void>>
+        >
+    with $FutureModifier<Result<void>>, $FutureProvider<Result<void>> {
   AppInitProvider._()
     : super(
         from: null,
@@ -31,13 +36,14 @@ final class AppInitProvider
 
   @$internal
   @override
-  $FutureProviderElement<void> $createElement($ProviderPointer pointer) =>
-      $FutureProviderElement(pointer);
+  $FutureProviderElement<Result<void>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
 
   @override
-  FutureOr<void> create(Ref ref) {
+  FutureOr<Result<void>> create(Ref ref) {
     return appInit(ref);
   }
 }
 
-String _$appInitHash() => r'182ed62e45d2337e3dd1be398ae50a67720d07e0';
+String _$appInitHash() => r'13169b5b0eb81b60f54ab5ab458fb26bb9dc4f4b';

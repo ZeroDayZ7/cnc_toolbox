@@ -36,6 +36,7 @@ class PreferencesKeys {
 /// --- APP CONFIG ---
 class AppConfig {
   static const minSplashDuration = Duration(milliseconds: 1500);
+  static const dbName = 'cnc_toolbox_db';
 }
 
 /// --- TOLERANCE DEFAULTS ---
@@ -43,4 +44,11 @@ class ToleranceDefaults {
   static const String holeLetter = 'H';
   static const String shaftLetter = 'h';
   static const String grade = '7';
+}
+
+/// --- LAYOUT & RESPONSIVE ---
+class AppBreakpoints {
+  static const double desktop = 900.0;
+  static const double tablet = 600.0;
+  static const double sidebarWidth = 280.0;
 }

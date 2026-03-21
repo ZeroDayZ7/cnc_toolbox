@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/widgets/info_components.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class GCodesInfoModal {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 16),
+              AppSpacings.gapM,
               Text(
                 LocaleKeys.g_codes_info_description.tr(),
                 style: const TextStyle(fontSize: 16, height: 1.5),
@@ -67,7 +68,7 @@ class GCodesInfoModal {
                 child: FilledButton.tonal(
                   onPressed: () => Navigator.pop(context),
                   style: FilledButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    padding: const EdgeInsets.symmetric(vertical: AppSpacings.m),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -75,7 +76,7 @@ class GCodesInfoModal {
                   child: Text(LocaleKeys.common_understand.tr()),
                 ),
               ),
-              const SizedBox(height: 16),
+              AppSpacings.gapM,
             ],
           ),
         ),

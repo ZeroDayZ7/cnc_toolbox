@@ -1,3 +1,4 @@
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/features/converter/application/converter_provider.dart';
 import 'package:cnc_toolbox/features/converter/models/converter_category.dart';
 import 'package:cnc_toolbox/features/converter/models/unit_model.dart';
@@ -19,7 +20,7 @@ class ConverterInputs extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListView.separated(
-      padding: const EdgeInsets.all(16),
+      padding: AppSpacings.edgeInsetsM,
       itemCount: units.length,
       separatorBuilder: (_, _) => const SizedBox(height: 12),
       itemBuilder: (context, index) {

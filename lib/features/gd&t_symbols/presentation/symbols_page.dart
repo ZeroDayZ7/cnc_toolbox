@@ -1,5 +1,6 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
 import 'package:cnc_toolbox/core/router/app_router.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/features/gd&t_symbols/data/symbols_data.dart';
 import 'package:cnc_toolbox/features/gd&t_symbols/widgets/gd_symbols_info_modal.dart';
 import 'package:cnc_toolbox/widgets/app_bar.dart';
@@ -30,7 +31,7 @@ class GdSymbolsPage extends StatelessWidget {
 
   Widget _buildAllSymbolsGrid(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: AppSpacings.edgeInsetsM,
       child: GridView.builder(
         itemCount: gdSymbolsList.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

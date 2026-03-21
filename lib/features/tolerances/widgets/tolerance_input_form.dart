@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/features/tolerances/domain/tolerance_models.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class ToleranceInputForm extends StatelessWidget {
         side: BorderSide(color: Theme.of(context).dividerColor),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: AppSpacings.edgeInsetsM,
         child: Column(
           children: [
             TextFormField(
@@ -51,7 +52,7 @@ class ToleranceInputForm extends StatelessWidget {
               ),
               onChanged: onDiameterChanged,
             ),
-            const SizedBox(height: 16),
+            AppSpacings.gapM,
             Row(
               children: [
                 Expanded(

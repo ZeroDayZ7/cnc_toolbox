@@ -1,3 +1,4 @@
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:flutter/material.dart';
 
 class InfoSection extends StatelessWidget {
@@ -42,7 +43,7 @@ class InfoTipCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: AppSpacings.edgeInsetsM,
       decoration: BoxDecoration(
         color: colorScheme.secondaryContainer.withValues(alpha: 0.4),
         borderRadius: BorderRadius.circular(12),

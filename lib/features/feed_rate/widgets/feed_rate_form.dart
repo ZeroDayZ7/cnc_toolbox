@@ -1,5 +1,5 @@
-// lib/features/feed_rate/widgets/feed_rate_form.dart
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/core/utils/app_number_formatter.dart';
 import 'package:cnc_toolbox/features/feed_rate/application/feed_rate_computed.dart';
 import 'package:cnc_toolbox/features/feed_rate/application/feed_rate_provider.dart';
@@ -21,12 +21,9 @@ class FeedRateForm extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(feedRateProvider(type));
-
     final vf = ref.watch(feedRateVfProvider(type));
     final avf = ref.watch(adjustedFeedRateProvider(type));
-    final f = (state.spindleSpeed > 0 && state.numberOfTeeth > 0)
-        ? vf / state.spindleSpeed
-        : 0.0;
+    final f = ref.watch(feedRateFProvider(type));
 
     final nController = useTextEditingController(
       text: _fmt(state.spindleSpeed),
@@ -58,7 +55,7 @@ class FeedRateForm extends HookConsumerWidget {
     }, [state, hasFocus]);
 
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
+      padding: AppSpacings.edgeInsetsM,
       child: Column(
         children: [
           ResultCard(
@@ -68,7 +65,7 @@ class FeedRateForm extends HookConsumerWidget {
           ),
           const SizedBox(height: 20),
           FeedInputFields(
-            type: type, // Przekazujemy typ, a nie notifiera
+            type: type,
             nController: nController,
             zController: zController,
             fzController: fzController,

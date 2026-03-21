@@ -1,5 +1,6 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
 import 'package:cnc_toolbox/core/router/app_router.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class NotFoundPage extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-              const SizedBox(height: 16),
+              AppSpacings.gapM,
               Text(
                 message ?? LocaleKeys.error_page_not_found.tr(),
                 style: Theme.of(context).textTheme.titleLarge,

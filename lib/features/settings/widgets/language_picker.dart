@@ -1,6 +1,7 @@
 import 'package:cnc_toolbox/core/localization/app_languages.dart';
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
 import 'package:cnc_toolbox/core/localization/locale_notifier.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,7 +18,7 @@ class LanguagePicker extends ConsumerWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.symmetric(vertical: AppSpacings.m),
           child: Text(
             LocaleKeys.select_language.tr(),
             style: Theme.of(context).textTheme.titleLarge,
@@ -45,7 +46,7 @@ class LanguagePicker extends ConsumerWidget {
             },
           );
         }),
-        const SizedBox(height: 16),
+        AppSpacings.gapM,
       ],
     );
   }

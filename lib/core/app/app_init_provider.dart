@@ -14,44 +14,46 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'app_init_provider.g.dart';
 
 @riverpod
-Future<void> appInit(Ref ref) async {
+Future<Result<void>> appInit(Ref ref) async {
   final logger = ref.read(appLoggerProvider);
   final startTime = DateTime.now();
 
+  // 1. Database Health Check
+  final dbRepo = ref.read(databaseRepositoryProvider);
+  final dbResult = await dbRepo.healthCheck();
+
+  // Obsługa Failure jako danej - bez rzucania wyjątków
+  if (dbResult is Failure<bool>) {
+    logger.e('💥 Database Check Failed', error: dbResult.error);
+    return Failure(DatabaseException(dbResult.error.toString()));
+  }
+
+  if (dbResult is Success<bool> && !dbResult.data) {
+    return Failure(DatabaseException('Database unhealthy'));
+  }
+
+  // 2. Warm-up & Parallel Loading
   try {
-    // 1. Database Health Check
-    final dbRepo = ref.read(databaseRepositoryProvider);
-    final dbResult = await dbRepo.healthCheck();
-
-    if (dbResult is Failure<bool>) {
-      throw DatabaseException('Drift Failure: ${dbResult.error}');
-    }
-
-    if (dbResult is Success<bool> && !dbResult.data) {
-      throw DatabaseException('Database unhealthy');
-    }
-
-    // 2. Warm-up Providers
     ref.read(themeProvider);
     ref.read(localeProvider);
     ref.read(gCodeControllerProvider);
     ref.read(settingsProvider);
 
-    // Czekamy na asynchroniczne
     await Future.wait([
       ref.read(toleranceServiceProvider.future),
       ref.read(historyProvider.future),
     ]);
-
-    // 3. Minimum Splash Time
-    final elapsed = DateTime.now().difference(startTime);
-    if (elapsed < AppConfig.minSplashDuration) {
-      await Future.delayed(AppConfig.minSplashDuration - elapsed);
-    }
-
-    logger.i('🚀 App Bootstrap Completed Successfully');
   } catch (e, st) {
-    logger.e('💥 App Bootstrap Failed', error: e, stackTrace: st);
-    rethrow;
+    logger.e('💥 Resource Loading Failed', error: e, stackTrace: st);
+    return Failure(e, st);
   }
+
+  // 3. Minimum Splash Time
+  final elapsed = DateTime.now().difference(startTime);
+  if (elapsed < AppConfig.minSplashDuration) {
+    await Future.delayed(AppConfig.minSplashDuration - elapsed);
+  }
+
+  logger.i('🚀 App Bootstrap Completed Successfully');
+  return const Success(null);
 }

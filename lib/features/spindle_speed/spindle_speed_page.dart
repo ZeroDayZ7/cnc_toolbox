@@ -20,7 +20,7 @@ class SpindleSpeedPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(Icons.speed, size: 64, color: Colors.grey),
-            SizedBox(height: 16),
+            AppSpacings.gapM,
             Text(
               'Spindle Speed Page Placeholder',
               style: TextStyle(fontSize: 16, color: Colors.grey),

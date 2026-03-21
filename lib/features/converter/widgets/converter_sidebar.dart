@@ -1,3 +1,4 @@
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/features/converter/models/converter_category.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +75,7 @@ class ConverterSidebar extends StatelessWidget {
                         // To zapobiega skakaniu ikon do środka
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const SizedBox(width: 16), // Stały margines od lewej
+                          AppSpacings.gapM, // Stały margines od lewej
                           Icon(
                             cat.icon,
                             size: 24,

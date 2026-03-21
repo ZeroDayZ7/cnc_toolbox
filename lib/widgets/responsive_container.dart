@@ -22,7 +22,7 @@ class ResponsiveContainer extends StatelessWidget {
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: size.maxWidth),
         child: Padding(
-          padding: padding ?? const EdgeInsets.all(AppSpacings.m),
+          padding: padding ?? AppSpacings.edgeInsetsM,
           child: child,
         ),
       ),

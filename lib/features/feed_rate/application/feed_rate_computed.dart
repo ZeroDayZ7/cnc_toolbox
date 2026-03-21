@@ -28,3 +28,12 @@ double adjustedFeedRate(Ref ref, FeedType type) {
     isInternal: s.isInternal,
   );
 }
+
+@Riverpod(keepAlive: true)
+double feedRateF(Ref ref, FeedType type) {
+  final s = ref.watch(feedRateProvider(type));
+
+  // Logika domeny: f = fz * z
+  if (s.feedPerTooth <= 0 || s.numberOfTeeth <= 0) return 0.0;
+  return s.feedPerTooth * s.numberOfTeeth;
+}

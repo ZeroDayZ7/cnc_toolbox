@@ -1,5 +1,6 @@
 import 'package:cnc_toolbox/core/app/app_init_provider.dart';
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -35,11 +36,11 @@ class ErrorApp extends ConsumerWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 16),
+              AppSpacings.gapM,
 
               // Kontener na techniczny opis błędu
               Container(
-                padding: const EdgeInsets.all(16),
+                padding: AppSpacings.edgeInsetsM,
                 decoration: BoxDecoration(
                   color: Colors.black.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(8),

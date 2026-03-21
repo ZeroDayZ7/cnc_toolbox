@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/features/tolerances/application/tolerance_controller.dart';
 import 'package:cnc_toolbox/features/tolerances/application/tolerance_provider.dart';
 import 'package:cnc_toolbox/features/tolerances/domain/tolerance_models.dart';
@@ -25,7 +26,7 @@ class TolerancePage extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, _) => Center(child: Text(err.toString())),
         data: (_) => SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
+          padding: AppSpacings.edgeInsetsM,
           child: Column(
             children: [
               SegmentedButton<ToleranceType>(
@@ -44,7 +45,7 @@ class TolerancePage extends ConsumerWidget {
                 selected: {ctrl.type},
                 onSelectionChanged: (set) => notifier.updateType(set.first),
               ),
-              const SizedBox(height: 16),
+              AppSpacings.gapM,
               ToleranceInputForm(
                 // Przekazujemy wartości ze stanu i callbacki do notifiera
                 diameterInitialValue: ctrl.diameterInput,

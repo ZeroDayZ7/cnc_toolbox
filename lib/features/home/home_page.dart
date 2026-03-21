@@ -1,5 +1,6 @@
 import 'package:cnc_toolbox/core/constants/constants.dart';
 import 'package:cnc_toolbox/core/router/app_router.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/features/home/cnc_drawer.dart';
 import 'package:cnc_toolbox/features/home/tool_tile.dart';
 import 'package:cnc_toolbox/features/home/tools_list.dart';
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
       ),
       drawer: const CncDrawer(),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: AppSpacings.edgeInsetsM,
         child: LayoutBuilder(
           builder: (context, constraints) {
             final crossAxisCount = constraints.maxWidth > 900

@@ -1,6 +1,7 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
 import 'package:cnc_toolbox/core/localization/locale_notifier.dart';
 import 'package:cnc_toolbox/core/router/app_router.dart';
+import 'package:cnc_toolbox/core/theme/app_design.dart';
 import 'package:cnc_toolbox/features/settings/widgets/language_tile.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -25,19 +26,19 @@ class SettingsPage extends ConsumerWidget {
         ),
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: AppSpacings.edgeInsetsM,
         children: [
           _SettingsContainer(
             title: LocaleKeys.appearance.tr(),
             child: const DarkModeSwitch(),
           ),
-          const SizedBox(height: 16),
+          AppSpacings.gapM,
 
           _SettingsContainer(
             title: LocaleKeys.language.tr(),
             child: const LanguageTile(),
           ),
-          const SizedBox(height: 16),
+          AppSpacings.gapM,
 
           _SettingsContainer(
             title: LocaleKeys.preferences.tr(),
@@ -56,7 +57,7 @@ class SettingsPage extends ConsumerWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          AppSpacings.gapM,
 
           _SettingsContainer(
             title: LocaleKeys.about.tr(),
