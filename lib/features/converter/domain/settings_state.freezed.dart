@@ -14,7 +14,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SettingsState {
 
- bool get isSidebarExpanded; Map<String, List<String>> get visibleUnits;
+/// Determines if the navigation sidebar is in its full or collapsed state.
+ bool get isSidebarExpanded;/// A map of user-selected visible units where the key is the category ID
+/// and the value is a list of enabled [UnitDefinition] IDs.
+ Map<String, List<String>> get visibleUnits;
 /// Create a copy of SettingsState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -204,8 +207,13 @@ class _SettingsState extends SettingsState {
   const _SettingsState({this.isSidebarExpanded = true, final  Map<String, List<String>> visibleUnits = const {}}): _visibleUnits = visibleUnits,super._();
   
 
+/// Determines if the navigation sidebar is in its full or collapsed state.
 @override@JsonKey() final  bool isSidebarExpanded;
+/// A map of user-selected visible units where the key is the category ID
+/// and the value is a list of enabled [UnitDefinition] IDs.
  final  Map<String, List<String>> _visibleUnits;
+/// A map of user-selected visible units where the key is the category ID
+/// and the value is a list of enabled [UnitDefinition] IDs.
 @override@JsonKey() Map<String, List<String>> get visibleUnits {
   if (_visibleUnits is EqualUnmodifiableMapView) return _visibleUnits;
   // ignore: implicit_dynamic_type

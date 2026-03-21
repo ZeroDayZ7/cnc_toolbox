@@ -14,7 +14,11 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ConverterState {
 
- Map<String, String> get values; List<String> get favoriteUnits;
+/// A map of calculated values where the key is the unit ID
+/// and the value is the formatted string for the UI.
+ Map<String, String> get values;/// A list of unit IDs marked as favorites or pinned by the user
+/// for quicker access within this category.
+ List<String> get favoriteUnits;
 /// Create a copy of ConverterState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -204,14 +208,22 @@ class _ConverterState implements ConverterState {
   const _ConverterState({final  Map<String, String> values = const {}, final  List<String> favoriteUnits = const []}): _values = values,_favoriteUnits = favoriteUnits;
   
 
+/// A map of calculated values where the key is the unit ID
+/// and the value is the formatted string for the UI.
  final  Map<String, String> _values;
+/// A map of calculated values where the key is the unit ID
+/// and the value is the formatted string for the UI.
 @override@JsonKey() Map<String, String> get values {
   if (_values is EqualUnmodifiableMapView) return _values;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableMapView(_values);
 }
 
+/// A list of unit IDs marked as favorites or pinned by the user
+/// for quicker access within this category.
  final  List<String> _favoriteUnits;
+/// A list of unit IDs marked as favorites or pinned by the user
+/// for quicker access within this category.
 @override@JsonKey() List<String> get favoriteUnits {
   if (_favoriteUnits is EqualUnmodifiableListView) return _favoriteUnits;
   // ignore: implicit_dynamic_type

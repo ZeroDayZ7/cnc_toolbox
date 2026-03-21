@@ -26,6 +26,9 @@ class LocalSettingsRepository {
 
   // --- THEME ---
 
+  /// Checks if a theme preference has been explicitly saved.
+  bool hasThemeConfig() => _prefs.containsKey(PreferencesKeys.isDarkMode);
+
   /// Retrieves the saved theme preference. Returns `false` (Light Mode) by default.
   bool getIsDarkMode() => _prefs.getBool(PreferencesKeys.isDarkMode) ?? false;
 

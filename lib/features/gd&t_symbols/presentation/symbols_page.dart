@@ -6,6 +6,7 @@ import 'package:cnc_toolbox/features/gd&t_symbols/widgets/gd_symbols_info_modal.
 import 'package:cnc_toolbox/widgets/app_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class GdSymbolsPage extends StatelessWidget {
   const GdSymbolsPage({super.key});
@@ -52,12 +53,17 @@ class GdSymbolsPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    s.symbol,
-                    style: const TextStyle(
-                      fontSize: 42,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Roboto',
+                  SizedBox(
+                    height: 42,
+                    width: 42,
+                    child: SvgPicture.asset(
+                      s.symbol,
+                      colorFilter: ColorFilter.mode(
+                        Theme.of(context).colorScheme.onSurface,
+                        BlendMode.srcIn,
+                      ),
+                      placeholderBuilder: (context) =>
+                          const Icon(Icons.image_not_supported),
                     ),
                   ),
                   const SizedBox(height: 8),

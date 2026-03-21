@@ -50,6 +50,7 @@ class GdSymbolDetailsPage extends StatelessWidget {
                         child: Text(
                           symbol.symbol,
                           style: const TextStyle(
+                            fontFamily: 'NotoSansSymbols',
                             fontSize: 80,
                           ),
                         ),

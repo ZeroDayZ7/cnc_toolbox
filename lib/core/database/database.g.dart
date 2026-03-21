@@ -1298,13 +1298,26 @@ class $AppDatabaseManager {
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Provider for the [AppDatabase] instance.
+///
+/// Uses [keepAlive] to ensure the database connection remains open
+/// throughout the application lifecycle.
 
 @ProviderFor(database)
 final databaseProvider = DatabaseProvider._();
 
+/// Provider for the [AppDatabase] instance.
+///
+/// Uses [keepAlive] to ensure the database connection remains open
+/// throughout the application lifecycle.
+
 final class DatabaseProvider
     extends $FunctionalProvider<AppDatabase, AppDatabase, AppDatabase>
     with $Provider<AppDatabase> {
+  /// Provider for the [AppDatabase] instance.
+  ///
+  /// Uses [keepAlive] to ensure the database connection remains open
+  /// throughout the application lifecycle.
   DatabaseProvider._()
     : super(
         from: null,
