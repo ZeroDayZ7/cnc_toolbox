@@ -7,7 +7,6 @@ import 'package:cnc_toolbox/widgets/app_bar.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-
 class GdSymbolsPage extends StatelessWidget {
   const GdSymbolsPage({super.key});
 
@@ -20,8 +19,7 @@ class GdSymbolsPage extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.info_outline),
             tooltip: LocaleKeys.gd_symbols_modal_title.tr(),
-            onPressed: () =>
-                GdSymbolsInfoModal.show(context),
+            onPressed: () => GdSymbolsInfoModal.show(context),
           ),
         ],
       ),
@@ -57,8 +55,9 @@ class GdSymbolsPage extends StatelessWidget {
                   Text(
                     s.symbol,
                     style: const TextStyle(
-                      fontSize: 32,
+                      fontSize: 42,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
                     ),
                   ),
                   const SizedBox(height: 8),

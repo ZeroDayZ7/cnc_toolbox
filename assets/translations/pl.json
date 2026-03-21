@@ -57,7 +57,7 @@
     "cutting_speed": "Oblicz prędkość skrawania na podstawie średnicy i RPM",
     "spindle_rpm": "Oblicz RPM dla materiału i narzędzia",
     "feed_rate": "Oblicz optymalny posuw",
-    "unit_converter": "Konwersja mm/inch, m/min ↔ ft/min",
+    "unit_converter": "Konwersja mm/inch, m/min - ft/min",
     "tolerances": "Oblicz tolerancje i pasowania otworów oraz wałków",
     "gd_symbols": "Tolerancje geometryczne kształtu i położenia",
     "g_codes": "Podręcznik referencyjny kodów G CNC"

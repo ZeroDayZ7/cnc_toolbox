@@ -56,7 +56,7 @@
     "cutting_speed": "Berechnet die Schnittgeschwindigkeit basierend auf Durchmesser und Drehzahl",
     "spindle_rpm": "Berechnet die Drehzahl für Material und Werkzeug",
     "feed_rate": "Berechnet den optimalen Vorschub",
-    "unit_converter": "Umrechnung mm/Zoll, m/min ↔ ft/min",
+    "unit_converter": "Umrechnung mm/Zoll, m/min - ft/min",
     "tolerances": "Berechnet Toleranzen und Passungen für Bohrungen und Wellen",
     "gd_symbols": "Geometrische Form- und Lagetoleranzen (GD&T)",
     "g_codes": "Referenzhandbuch für CNC-G-Codes"

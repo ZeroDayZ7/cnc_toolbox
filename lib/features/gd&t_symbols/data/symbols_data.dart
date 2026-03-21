@@ -100,7 +100,7 @@ final gdSymbolsList = [
   ),
   const GdSymbol(
     name: LocaleKeys.gd_symbols_items_circular_runout_name,
-    symbol: "\u2197\uFE0E",
+    symbol: "↗",
     description: LocaleKeys.gd_symbols_items_circular_runout_description,
     category: SymbolCategory.runout,
     requiresDatum: true,
