@@ -113,6 +113,9 @@ abstract class  LocaleKeys {
   static const gd_symbols_items_total_runout_name = 'gd_symbols.items.total_runout.name';
   static const gd_symbols_items_total_runout_description = 'gd_symbols.items.total_runout.description';
   static const gd_symbols_items_total_runout = 'gd_symbols.items.total_runout';
+  static const gd_symbols_items_datum_features_name = 'gd_symbols.items.datum_features.name';
+  static const gd_symbols_items_datum_features_description = 'gd_symbols.items.datum_features.description';
+  static const gd_symbols_items_datum_features = 'gd_symbols.items.datum_features';
   static const gd_symbols_items = 'gd_symbols.items';
   static const gd_symbols = 'gd_symbols';
   static const contact = 'contact';

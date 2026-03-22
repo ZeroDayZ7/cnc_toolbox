@@ -8,12 +8,24 @@ part of 'locale_notifier.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// A notifier that manages the application's current [Locale] state.
+///
+/// This provider is kept alive throughout the app's lifecycle to ensure
+/// language preferences are preserved during navigation and background tasks.
 
 @ProviderFor(LocaleNotifier)
 final localeProvider = LocaleNotifierProvider._();
 
+/// A notifier that manages the application's current [Locale] state.
+///
+/// This provider is kept alive throughout the app's lifecycle to ensure
+/// language preferences are preserved during navigation and background tasks.
 final class LocaleNotifierProvider
     extends $NotifierProvider<LocaleNotifier, Locale> {
+  /// A notifier that manages the application's current [Locale] state.
+  ///
+  /// This provider is kept alive throughout the app's lifecycle to ensure
+  /// language preferences are preserved during navigation and background tasks.
   LocaleNotifierProvider._()
     : super(
         from: null,
@@ -42,6 +54,11 @@ final class LocaleNotifierProvider
 }
 
 String _$localeNotifierHash() => r'a07296c5264f33415d292947b0d73a3fca0d9f2a';
+
+/// A notifier that manages the application's current [Locale] state.
+///
+/// This provider is kept alive throughout the app's lifecycle to ensure
+/// language preferences are preserved during navigation and background tasks.
 
 abstract class _$LocaleNotifier extends $Notifier<Locale> {
   Locale build();

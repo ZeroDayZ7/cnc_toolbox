@@ -52,3 +52,26 @@ class AppBreakpoints {
   static const double tablet = 600.0;
   static const double sidebarWidth = 280.0;
 }
+
+/// --- SYMBOLS ASSETS PATHS ---
+class GdAssets {
+  static const String basePath = 'assets/images/gd_t_symbols';
+  static const String svgPath = '$basePath/svg';
+
+  static const String straightness = 'straightness'; // prostoliniowość
+  static const String flatness = 'flatness'; // płaskość
+  static const String circularity = 'circularity'; // okrągłość
+  static const String cylindricity = 'cylindricity'; // walcowość
+  static const String profileLine = 'profile_line'; // profil linii
+  static const String profileSurface = 'profile_surface'; // profil powierzchni
+  static const String perpendicularity = 'perpendicularity'; // prostopadłość
+  static const String angularity = 'angularity'; // nachylenie
+  static const String parallelism = 'parallelism'; // równoległość
+  static const String position = 'position'; // pozycja
+  static const String concentricity = 'concentricity'; // współśrodkowość
+  static const String symmetry = 'symmetry'; // symetria
+  static const String circularRunout = 'circular_runout'; // bicie promieniowe
+  static const String totalRunout = 'total_runout'; // bicie całkowite
+
+  static const String datumFeature = 'datum_feature'; // bicie całkowite
+}

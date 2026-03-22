@@ -8,9 +8,18 @@ part of 'drift_database_repository.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Provides the singleton instance of the [IDatabaseRepository].
+///
+/// By watching [databaseProvider], it ensures the repository is always
+/// linked to an active database session.
 
 @ProviderFor(databaseRepository)
 final databaseRepositoryProvider = DatabaseRepositoryProvider._();
+
+/// Provides the singleton instance of the [IDatabaseRepository].
+///
+/// By watching [databaseProvider], it ensures the repository is always
+/// linked to an active database session.
 
 final class DatabaseRepositoryProvider
     extends
@@ -20,6 +29,10 @@ final class DatabaseRepositoryProvider
           IDatabaseRepository
         >
     with $Provider<IDatabaseRepository> {
+  /// Provides the singleton instance of the [IDatabaseRepository].
+  ///
+  /// By watching [databaseProvider], it ensures the repository is always
+  /// linked to an active database session.
   DatabaseRepositoryProvider._()
     : super(
         from: null,

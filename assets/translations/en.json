@@ -56,7 +56,7 @@
     "cutting_speed": "Calculate cutting speed based on diameter and RPM",
     "spindle_rpm": "Calculate RPM for material and tool",
     "feed_rate": "Calculate optimal feed rate",
-    "unit_converter": "Convert mm/inch, m/min ↔ ft/min",
+    "unit_converter": "Konwersja mm/inch, m/min - ft/min",
     "tolerances": "Calculate tolerances and fits for holes and shafts",
     "gd_symbols": "Geometric shape and location tolerances",
     "g_codes": "CNC G Code reference manual"
@@ -134,6 +134,10 @@
       "total_runout": {
         "name": "Total Runout",
         "description": "Total runout tolerance - zone limited by two concentric cylinders."
+      },
+      "datum_features": {
+        "name": "Baza pomiarowa",
+        "description": "Fizyczny element części (powierzchnia, otwór, wałek) używany do ustanowienia teoretycznie idealnej bazy odniesienia dla pomiarów."
       }
     }
   },

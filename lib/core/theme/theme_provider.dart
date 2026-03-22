@@ -15,7 +15,12 @@ class ThemeNotifier extends _$ThemeNotifier {
   /// Defaults to [ThemeMode.light] if no preference is found.
   ThemeMode build() {
     final repo = ref.watch(localSettingsRepositoryProvider);
-    return repo.getIsDarkMode() ? ThemeMode.dark : ThemeMode.light;
+
+    if (!repo.hasThemeConfig()) {
+      return ThemeMode.system;
+    }
+    final bool isDarkModeSaved = repo.getIsDarkMode();
+    return isDarkModeSaved ? ThemeMode.dark : ThemeMode.light;
   }
 
   /// Toggles the application theme and persists the choice to local storage.

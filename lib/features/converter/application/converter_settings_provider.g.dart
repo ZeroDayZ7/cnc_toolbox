@@ -8,12 +8,24 @@ part of 'converter_settings_provider.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Notifier responsible for managing UI-related preferences and configuration.
+///
+/// It acts as a bridge between the [LocalSettingsRepository] and the UI,
+/// ensuring that layout and visibility settings are persisted across sessions.
 
 @ProviderFor(SettingsNotifier)
 final settingsProvider = SettingsNotifierProvider._();
 
+/// Notifier responsible for managing UI-related preferences and configuration.
+///
+/// It acts as a bridge between the [LocalSettingsRepository] and the UI,
+/// ensuring that layout and visibility settings are persisted across sessions.
 final class SettingsNotifierProvider
     extends $NotifierProvider<SettingsNotifier, SettingsState> {
+  /// Notifier responsible for managing UI-related preferences and configuration.
+  ///
+  /// It acts as a bridge between the [LocalSettingsRepository] and the UI,
+  /// ensuring that layout and visibility settings are persisted across sessions.
   SettingsNotifierProvider._()
     : super(
         from: null,
@@ -42,6 +54,11 @@ final class SettingsNotifierProvider
 }
 
 String _$settingsNotifierHash() => r'8cb9f55efffc50332f49448c124dae047cf6ba42';
+
+/// Notifier responsible for managing UI-related preferences and configuration.
+///
+/// It acts as a bridge between the [LocalSettingsRepository] and the UI,
+/// ensuring that layout and visibility settings are persisted across sessions.
 
 abstract class _$SettingsNotifier extends $Notifier<SettingsState> {
   SettingsState build();

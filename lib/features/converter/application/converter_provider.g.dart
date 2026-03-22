@@ -8,12 +8,24 @@ part of 'converter_provider.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Manage state and business logic for unit conversion within a specific category.
+///
+/// Uses a [keepAlive] strategy to preserve user inputs when navigating
+/// between different converter categories or app settings.
 
 @ProviderFor(ConverterNotifier)
 final converterProvider = ConverterNotifierFamily._();
 
+/// Manage state and business logic for unit conversion within a specific category.
+///
+/// Uses a [keepAlive] strategy to preserve user inputs when navigating
+/// between different converter categories or app settings.
 final class ConverterNotifierProvider
     extends $NotifierProvider<ConverterNotifier, ConverterState> {
+  /// Manage state and business logic for unit conversion within a specific category.
+  ///
+  /// Uses a [keepAlive] strategy to preserve user inputs when navigating
+  /// between different converter categories or app settings.
   ConverterNotifierProvider._({
     required ConverterNotifierFamily super.from,
     required ConverterCategory super.argument,
@@ -60,6 +72,11 @@ final class ConverterNotifierProvider
 
 String _$converterNotifierHash() => r'0284740157a36000b319267c4eb03eea5fe5db1a';
 
+/// Manage state and business logic for unit conversion within a specific category.
+///
+/// Uses a [keepAlive] strategy to preserve user inputs when navigating
+/// between different converter categories or app settings.
+
 final class ConverterNotifierFamily extends $Family
     with
         $ClassFamilyOverride<
@@ -78,12 +95,22 @@ final class ConverterNotifierFamily extends $Family
         isAutoDispose: false,
       );
 
+  /// Manage state and business logic for unit conversion within a specific category.
+  ///
+  /// Uses a [keepAlive] strategy to preserve user inputs when navigating
+  /// between different converter categories or app settings.
+
   ConverterNotifierProvider call(ConverterCategory category) =>
       ConverterNotifierProvider._(argument: category, from: this);
 
   @override
   String toString() => r'converterProvider';
 }
+
+/// Manage state and business logic for unit conversion within a specific category.
+///
+/// Uses a [keepAlive] strategy to preserve user inputs when navigating
+/// between different converter categories or app settings.
 
 abstract class _$ConverterNotifier extends $Notifier<ConverterState> {
   late final _$args = ref.$arg as ConverterCategory;

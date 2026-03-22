@@ -8,9 +8,16 @@ part of 'local_settings_repository.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
+/// Provider for the [LocalSettingsRepository] instance.
+///
+/// Depends on [sharedPrefsProvider] to access the underlying storage engine.
 
 @ProviderFor(localSettingsRepository)
 final localSettingsRepositoryProvider = LocalSettingsRepositoryProvider._();
+
+/// Provider for the [LocalSettingsRepository] instance.
+///
+/// Depends on [sharedPrefsProvider] to access the underlying storage engine.
 
 final class LocalSettingsRepositoryProvider
     extends
@@ -20,6 +27,9 @@ final class LocalSettingsRepositoryProvider
           LocalSettingsRepository
         >
     with $Provider<LocalSettingsRepository> {
+  /// Provider for the [LocalSettingsRepository] instance.
+  ///
+  /// Depends on [sharedPrefsProvider] to access the underlying storage engine.
   LocalSettingsRepositoryProvider._()
     : super(
         from: null,

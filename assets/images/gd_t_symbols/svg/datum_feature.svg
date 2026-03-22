@@ -1,0 +1,16 @@
+<svg viewBox="0 0 375 375" xmlns="http://www.w3.org/2000/svg">
+  <!-- ramka -->
+  <rect x="130" y="70" width="115" height="115"
+        stroke="black" stroke-width="12" fill="none"/>
+
+  <!-- pionowa kreska -->
+  <line x1="187.5" y1="185" x2="187.5" y2="255"
+        stroke="black" stroke-width="12"/>
+
+  <!-- strzałka -->
+  <path d="M187.5 225 L240 310 L135 310 Z" fill="black"/>
+
+  <!-- LITERA A -->
+  <path d="M160 160 L187.5 95 L215 160 M172 135 L203 135"
+        stroke="black" stroke-width="10" fill="none" stroke-linecap="round"/>
+</svg>

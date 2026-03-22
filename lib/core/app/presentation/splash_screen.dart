@@ -12,6 +12,7 @@ class SplashScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final message = LocaleKeys.splash_loading.tr();
+    final colorScheme = Theme.of(context).colorScheme;
 
     return AppScaffold(
       scrollable: false,
@@ -22,8 +23,8 @@ class SplashScreen extends ConsumerWidget {
           children: [
             Text(
               AppInfo.appName.toUpperCase(),
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: colorScheme.onSurface,
                 fontSize: 36,
                 fontWeight: FontWeight.w900,
                 letterSpacing: 6,
@@ -32,22 +33,25 @@ class SplashScreen extends ConsumerWidget {
             const SizedBox(height: 60),
             const SpinKitFoldingCube(color: Colors.blueAccent, size: 35.0),
             const SizedBox(height: 60),
-            // Tłumaczony komunikat
             Text(
               message,
-              style: const TextStyle(
-                color: Colors.blueAccent,
+              style: TextStyle(
+                color: colorScheme.secondary,
                 fontSize: 10,
                 fontFamily: 'Monospace',
                 letterSpacing: 2,
               ),
             ),
             const SizedBox(height: 10),
-            const Opacity(
+            Opacity(
               opacity: 0.4,
               child: Text(
                 'VERSION ${AppInfo.appVersion}',
-                style: TextStyle(color: Colors.white, fontSize: 10),
+                style: TextStyle(
+                  color: colorScheme.onSurface,
+                  fontSize: 12,
+                  // ...
+                ),
               ),
             ),
           ],
