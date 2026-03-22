@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/core/app/presentation/not_found_page.dart';
+import 'package:cnc_toolbox/core/constants/constants.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -25,7 +26,7 @@ part 'app_router.g.dart';
 /// This structure defines the entire application tree, ensuring that
 /// parameters and route names are checked at compile-time.
 @TypedGoRoute<HomeRoute>(
-  path: '/',
+  path: Routes.home,
   routes: [
     TypedGoRoute<SettingsRoute>(path: 'settings'),
     TypedGoRoute<CuttingSpeedRoute>(path: 'cutting-speed'),
@@ -37,7 +38,7 @@ part 'app_router.g.dart';
     TypedGoRoute<GCodesRoute>(path: 'g-codes'),
     TypedGoRoute<GdSymbolsRoute>(
       path: 'gd-symbols',
-      routes: [TypedGoRoute<GdSymbolDetailsRoute>(path: 'details')],
+      routes: [TypedGoRoute<GdSymbolDetailsRoute>(path: ':symbolName')],
     ),
   ],
 )
@@ -110,20 +111,15 @@ class GdSymbolsRoute extends GoRouteData with $GdSymbolsRoute {
 }
 
 /// Detailed view for a specific GD&T symbol.
-///
-/// Uses the `$extra` parameter to pass the symbol name and performs
-/// a lookup to ensure the data exists before rendering.
 class GdSymbolDetailsRoute extends GoRouteData with $GdSymbolDetailsRoute {
-  final String? $extra;
-  const GdSymbolDetailsRoute({this.$extra});
+  final String symbolName;
+
+  const GdSymbolDetailsRoute({required this.symbolName});
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    // Lookup symbol in the static data list
-    final symbol = gdSymbolsList.firstWhereOrNull(
-      (s) => s.name == ($extra ?? ''),
-    );
-    // Fallback to error page if symbol is missing from data source
+    final symbol = gdSymbolsList.firstWhereOrNull((s) => s.id == symbolName);
+
     if (symbol == null) {
       return const NotFoundPage(message: 'Nie znaleziono symbolu GD&T');
     }

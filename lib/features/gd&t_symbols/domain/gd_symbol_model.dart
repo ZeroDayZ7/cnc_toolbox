@@ -2,6 +2,7 @@
 enum SymbolCategory { form, orientation, location, runout }
 
 class GdSymbol {
+  final String id;
   final String name;
   final String symbol;
   final String description;
@@ -10,6 +11,7 @@ class GdSymbol {
   final String? assetImage;
 
   const GdSymbol({
+    required this.id,
     required this.name,
     required this.symbol,
     required this.description,

@@ -1,5 +1,7 @@
 // lib/features/converter/application/converter_provider.dart
+import 'package:cnc_toolbox/core/models/result.dart';
 import 'package:cnc_toolbox/core/utils/app_number_formatter.dart';
+import 'package:cnc_toolbox/core/utils/logger/logger_provider.dart';
 import 'package:cnc_toolbox/features/converter/domain/converter_service.dart';
 import 'package:cnc_toolbox/features/converter/domain/converter_state.dart';
 import 'package:cnc_toolbox/features/converter/models/converter_category.dart';
@@ -35,14 +37,25 @@ class ConverterNotifier extends _$ConverterNotifier {
     if (inputValue == null) return;
 
     // Delegate mathematical transformations to the domain service
-    final newValues = ConverterService.calculateValues(
+    final result = ConverterService.calculateValues(
       sourceUnitId: unitId,
       inputValue: value,
       numericValue: inputValue,
       allUnits: allUnits,
     );
 
-    // Push the updated map of values to the UI
-    state = state.copyWith(values: newValues);
+    // Handle the conversion result and update state or log failures
+    state = switch (result) {
+      Success(data: final newValues) => state.copyWith(values: newValues),
+      Failure(error: final e) => _handleConversionError(e),
+    };
+  }
+
+  /// Logs the error and returns the current state to prevent UI disruptions.
+  ConverterState _handleConversionError(Object e) {
+    ref
+        .read(appLoggerProvider)
+        .e('Unit conversion failed', error: e, module: 'CONVERTER');
+    return state;
   }
 }

@@ -13,7 +13,7 @@ class GdSymbolCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(12),
-      onTap: () => GdSymbolDetailsRoute($extra: s.name).push(context),
+      onTap: () => GdSymbolDetailsRoute(symbolName: s.id).go(context),
       child: Card(
         elevation: 0,
         margin: EdgeInsets.zero,

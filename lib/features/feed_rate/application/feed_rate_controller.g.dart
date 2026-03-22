@@ -42,7 +42,7 @@ final class FeedRateControllerProvider
 }
 
 String _$feedRateControllerHash() =>
-    r'71bb3be4232c54afd25eb5be06dbecaa6c036920';
+    r'73d83c195340a0c53098e9ac119f1e8be1156fe4';
 
 abstract class _$FeedRateController extends $Notifier<void> {
   void build();

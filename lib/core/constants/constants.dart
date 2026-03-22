@@ -1,5 +1,5 @@
 /// --- ROUTES ---
-class Routes {
+abstract class Routes {
   static const home = '/';
   static const cuttingSpeed = '/cutting-speed';
   static const spindleSpeed = '/spindle-speed';
@@ -13,7 +13,7 @@ class Routes {
 }
 
 /// --- APP INFO ---
-class AppInfo {
+abstract class AppInfo {
   static const appName = 'VeloCNC';
   static const appVersion = '1.0.0';
   static const contactEmail = 'support@velocnc.com';
@@ -21,33 +21,34 @@ class AppInfo {
 }
 
 /// --- ASSETS ---
-class AppAssets {
+abstract class AppAssets {
   static const tolerancesJson = 'assets/data/tolerances.json';
   static const gCodesJson = 'assets/data/g_codes.json';
 }
 
 /// --- PREFERENCES KEYS ---
-class PreferencesKeys {
+abstract class PreferencesKeys {
   static const isDarkMode = 'is_dark_mode';
   static const sidebarExpanded = 'sidebar_expanded';
   static const unitsKeyPrefix = 'units_';
 }
 
 /// --- APP CONFIG ---
-class AppConfig {
+abstract class AppConfig {
   static const minSplashDuration = Duration(milliseconds: 1500);
+  static const searchDebounce = Duration(milliseconds: 300);
   static const dbName = 'cnc_toolbox_db';
 }
 
 /// --- TOLERANCE DEFAULTS ---
-class ToleranceDefaults {
+abstract class ToleranceDefaults {
   static const String holeLetter = 'H';
   static const String shaftLetter = 'h';
   static const String grade = '7';
 }
 
 /// --- LAYOUT & RESPONSIVE ---
-class AppBreakpoints {
+abstract class AppBreakpoints {
   static const double desktop = 900.0;
   static const double tablet = 600.0;
   static const double sidebarWidth = 280.0;
@@ -65,7 +66,7 @@ abstract class AppOpacity {
 }
 
 /// --- SYMBOLS ASSETS PATHS ---
-class GdAssets {
+abstract class GdAssets {
   static const String basePath = 'assets/images/gd_t_symbols';
   static const String svgPath = '$basePath/svg';
 

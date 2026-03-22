@@ -4,6 +4,7 @@ import 'package:cnc_toolbox/features/gd&t_symbols/domain/gd_symbol_model.dart';
 
 final List<GdSymbol> gdSymbolsList = [
   GdSymbol(
+    id: GdAssets.straightness,
     name: LocaleKeys.gd_symbols_items_straightness_name,
     symbol: GdAssets.getVectorPath(GdAssets.straightness),
     description: LocaleKeys.gd_symbols_items_straightness_description,
@@ -11,6 +12,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.straightness),
   ),
   GdSymbol(
+    id: GdAssets.flatness,
     name: LocaleKeys.gd_symbols_items_flatness_name,
     symbol: GdAssets.getVectorPath(GdAssets.flatness),
     description: LocaleKeys.gd_symbols_items_flatness_description,
@@ -18,6 +20,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.flatness),
   ),
   GdSymbol(
+    id: GdAssets.circularity,
     name: LocaleKeys.gd_symbols_items_circularity_name,
     symbol: GdAssets.getVectorPath(GdAssets.circularity),
     description: LocaleKeys.gd_symbols_items_circularity_description,
@@ -25,6 +28,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.circularity),
   ),
   GdSymbol(
+    id: GdAssets.cylindricity,
     name: LocaleKeys.gd_symbols_items_cylindricity_name,
     symbol: GdAssets.getVectorPath(GdAssets.cylindricity),
     description: LocaleKeys.gd_symbols_items_cylindricity_description,
@@ -32,6 +36,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.cylindricity),
   ),
   GdSymbol(
+    id: GdAssets.profileLine,
     name: LocaleKeys.gd_symbols_items_profile_line_name,
     symbol: GdAssets.getVectorPath(GdAssets.profileLine),
     description: LocaleKeys.gd_symbols_items_profile_line_description,
@@ -39,6 +44,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.profileLine),
   ),
   GdSymbol(
+    id: GdAssets.profileSurface,
     name: LocaleKeys.gd_symbols_items_profile_surface_name,
     symbol: GdAssets.getVectorPath(GdAssets.profileSurface),
     description: LocaleKeys.gd_symbols_items_profile_surface_description,
@@ -46,6 +52,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.profileSurface),
   ),
   GdSymbol(
+    id: GdAssets.perpendicularity,
     name: LocaleKeys.gd_symbols_items_perpendicularity_name,
     symbol: GdAssets.getVectorPath(GdAssets.perpendicularity),
     description: LocaleKeys.gd_symbols_items_perpendicularity_description,
@@ -54,6 +61,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.perpendicularity),
   ),
   GdSymbol(
+    id: GdAssets.angularity,
     name: LocaleKeys.gd_symbols_items_angularity_name,
     symbol: GdAssets.getVectorPath(GdAssets.angularity),
     description: LocaleKeys.gd_symbols_items_angularity_description,
@@ -62,6 +70,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.angularity),
   ),
   GdSymbol(
+    id: GdAssets.parallelism,
     name: LocaleKeys.gd_symbols_items_parallelism_name,
     symbol: GdAssets.getVectorPath(GdAssets.parallelism),
     description: LocaleKeys.gd_symbols_items_parallelism_description,
@@ -70,6 +79,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.parallelism),
   ),
   GdSymbol(
+    id: GdAssets.position,
     name: LocaleKeys.gd_symbols_items_position_name,
     symbol: GdAssets.getVectorPath(GdAssets.position),
     description: LocaleKeys.gd_symbols_items_position_description,
@@ -78,6 +88,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.position),
   ),
   GdSymbol(
+    id: GdAssets.concentricity,
     name: LocaleKeys.gd_symbols_items_concentricity_name,
     symbol: GdAssets.getVectorPath(GdAssets.concentricity),
     description: LocaleKeys.gd_symbols_items_concentricity_description,
@@ -86,6 +97,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.concentricity),
   ),
   GdSymbol(
+    id: GdAssets.symmetry,
     name: LocaleKeys.gd_symbols_items_symmetry_name,
     symbol: GdAssets.getVectorPath(GdAssets.symmetry),
     description: LocaleKeys.gd_symbols_items_symmetry_description,
@@ -94,6 +106,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.symmetry),
   ),
   GdSymbol(
+    id: GdAssets.circularRunout,
     name: LocaleKeys.gd_symbols_items_circular_runout_name,
     symbol: GdAssets.getVectorPath(GdAssets.circularRunout),
     description: LocaleKeys.gd_symbols_items_circular_runout_description,
@@ -102,6 +115,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.circularRunout),
   ),
   GdSymbol(
+    id: GdAssets.totalRunout,
     name: LocaleKeys.gd_symbols_items_total_runout_name,
     symbol: GdAssets.getVectorPath(GdAssets.totalRunout),
     description: LocaleKeys.gd_symbols_items_total_runout_description,
@@ -110,6 +124,7 @@ final List<GdSymbol> gdSymbolsList = [
     assetImage: GdAssets.getPngPath(GdAssets.totalRunout),
   ),
   GdSymbol(
+    id: GdAssets.datumFeature,
     name: LocaleKeys.gd_symbols_items_datum_features_name,
     symbol: GdAssets.getVectorPath(GdAssets.datumFeature),
     description: LocaleKeys.gd_symbols_items_datum_features_description,

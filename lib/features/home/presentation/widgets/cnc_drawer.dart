@@ -79,8 +79,11 @@ class CncDrawer extends StatelessWidget {
                   selected: isSelected,
                   selectedTileColor: Colors.blueAccent.withValues(alpha: 0.1),
                   onTap: () {
-                    context.pop();
-                    tool.route.go(context);
+                    if (isSelected) {
+                      context.pop();
+                    } else {
+                      tool.route.go(context);
+                    }
                   },
                 );
               },
@@ -99,8 +102,13 @@ class CncDrawer extends StatelessWidget {
               style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             ),
             onTap: () {
-              context.pop();
-              const SettingsRoute().push(context);
+              final String settingsLocation = const SettingsRoute().location;
+              if (location == settingsLocation) {
+                context.pop();
+              } else {
+                context.pop();
+                const SettingsRoute().push(context);
+              }
             },
           ),
           const SizedBox(height: 10),

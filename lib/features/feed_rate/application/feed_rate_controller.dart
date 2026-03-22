@@ -1,3 +1,4 @@
+import 'package:cnc_toolbox/core/models/result.dart';
 import 'package:cnc_toolbox/core/utils/logger/logger_provider.dart';
 import 'package:cnc_toolbox/features/feed_rate/application/feed_rate_computed.dart';
 import 'package:cnc_toolbox/features/feed_rate/application/feed_rate_provider.dart';
@@ -34,11 +35,14 @@ class FeedRateController extends _$FeedRateController {
       isInternal: s.isInternal,
     );
 
-    try {
-      await repo.saveCalculationDto(dto);
-      log.i("Saved calculation", module: "FEED_RATE");
-    } catch (e) {
-      log.e("Save failed", module: "DATABASE", error: e);
+    final result = await repo.saveCalculationDto(dto);
+
+    // Używamy pattern matching do obsługi wyniku
+    switch (result) {
+      case Success():
+        log.i("Saved calculation", module: "FEED_RATE");
+      case Failure(error: final e):
+        log.e("Save failed", module: "DATABASE", error: e);
     }
   }
 }

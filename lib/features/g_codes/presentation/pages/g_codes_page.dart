@@ -27,9 +27,7 @@ class GCodesPage extends ConsumerWidget {
         ],
       ),
       body: state.isLoading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            ) 
+          ? const Center(child: CircularProgressIndicator())
           : Column(
               children: [
                 const GCodeSearchBar(),
@@ -38,8 +36,13 @@ class GCodesPage extends ConsumerWidget {
                       ? Center(child: Text(LocaleKeys.error_no_results.tr()))
                       : ListView.builder(
                           itemCount: state.filteredCodes.length,
-                          itemBuilder: (context, index) =>
-                              GCodeTile(code: state.filteredCodes[index]),
+                          itemBuilder: (context, index) {
+                            final code = state.filteredCodes[index];
+                            return GCodeTile(
+                              key: ValueKey(code.code),
+                              code: code,
+                            );
+                          },
                         ),
                 ),
               ],

@@ -70,7 +70,7 @@ final class ConverterNotifierProvider
   }
 }
 
-String _$converterNotifierHash() => r'0284740157a36000b319267c4eb03eea5fe5db1a';
+String _$converterNotifierHash() => r'2de1d29bf657783006eacc5c149de5cbcadf2cdb';
 
 /// Manage state and business logic for unit conversion within a specific category.
 ///

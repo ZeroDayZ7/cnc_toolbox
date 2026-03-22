@@ -34,7 +34,7 @@ RouteBase get $homeRoute => GoRouteData.$route(
       factory: $GdSymbolsRoute._fromState,
       routes: [
         GoRouteData.$route(
-          path: 'details',
+          path: ':symbolName',
           factory: $GdSymbolDetailsRoute._fromState,
         ),
       ],
@@ -249,27 +249,27 @@ mixin $GdSymbolsRoute on GoRouteData {
 
 mixin $GdSymbolDetailsRoute on GoRouteData {
   static GdSymbolDetailsRoute _fromState(GoRouterState state) =>
-      GdSymbolDetailsRoute($extra: state.extra as String?);
+      GdSymbolDetailsRoute(symbolName: state.pathParameters['symbolName']!);
 
   GdSymbolDetailsRoute get _self => this as GdSymbolDetailsRoute;
 
   @override
-  String get location => GoRouteData.$location('/gd-symbols/details');
+  String get location => GoRouteData.$location(
+    '/gd-symbols/${Uri.encodeComponent(_self.symbolName)}',
+  );
 
   @override
-  void go(BuildContext context) => context.go(location, extra: _self.$extra);
+  void go(BuildContext context) => context.go(location);
 
   @override
-  Future<T?> push<T>(BuildContext context) =>
-      context.push<T>(location, extra: _self.$extra);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
   @override
   void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location, extra: _self.$extra);
+      context.pushReplacement(location);
 
   @override
-  void replace(BuildContext context) =>
-      context.replace(location, extra: _self.$extra);
+  void replace(BuildContext context) => context.replace(location);
 }
 
 // **************************************************************************

@@ -16,14 +16,18 @@ final _logger = AppLogger();
 /// Entry point for the application bootstrap process.
 ///
 /// Responsibilities:
-/// - Error handling (Flutter errors, asynchronous errors via [runZonedGuarded]).
+/// - Error handling (Flutter errors, asynchronous errors via [PlatformDispatcher]).
 /// - Global services initialization (SharedPreferences, Localization).
 /// - Manual [ProviderContainer] creation for precise dependency overrides.
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
+  // Ensure Flutter bindings are initialized early for platform-specific services
+  WidgetsFlutterBinding.ensureInitialized();
+
   // Catch Flutter-specific framework errors
   FlutterError.onError = _handleFlutterError;
 
   // Catch errors that happen in the platform's underlying code
+  // This modern approach replaces the legacy runZonedGuarded for async errors
   PlatformDispatcher.instance.onError = (error, stack) {
     _handleGlobalError(error, stack);
     return true;
@@ -43,39 +47,35 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     );
   };
 
-  // Guard the application startup using a custom error zone
-  await runZonedGuarded<Future<void>>(() async {
-    WidgetsFlutterBinding.ensureInitialized();
-    await EasyLocalization.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
 
-    // 1. Core services initialization before Riverpod starts
-    final prefs = await SharedPreferences.getInstance();
+  // 1. Core services initialization before Riverpod starts
+  final prefs = await SharedPreferences.getInstance();
 
-    // 2. Create ProviderContainer with manual overrides
-    // Using UncontrolledProviderScope allows us to manage the lifecycle
-    // of the container manually, which is safer for advanced bootstrap flows.
-    final container = ProviderContainer(
-      observers: [const AppObserver()],
-      overrides: [
-        sharedPrefsProvider.overrideWithValue(prefs),
-        appLoggerProvider.overrideWithValue(_logger),
-      ],
-    );
+  // 2. Create ProviderContainer with manual overrides
+  // Using UncontrolledProviderScope allows us to manage the lifecycle
+  // of the container manually, which is safer for advanced bootstrap flows.
+  final container = ProviderContainer(
+    observers: [const AppObserver()],
+    overrides: [
+      sharedPrefsProvider.overrideWithValue(prefs),
+      appLoggerProvider.overrideWithValue(_logger),
+    ],
+  );
 
-    runApp(
-      UncontrolledProviderScope(
-        container: container,
-        child: EasyLocalization(
-          supportedLocales: const [Locale('pl'), Locale('en')],
-          path: 'assets/translations',
-          fallbackLocale: const Locale('en'),
-          saveLocale: true,
-          useOnlyLangCode: true,
-          child: await builder(),
-        ),
+  runApp(
+    UncontrolledProviderScope(
+      container: container,
+      child: EasyLocalization(
+        supportedLocales: const [Locale('pl'), Locale('en')],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('en'),
+        saveLocale: true,
+        useOnlyLangCode: true,
+        child: await builder(),
       ),
-    );
-  }, (error, stack) => _handleGlobalError(error, stack));
+    ),
+  );
 }
 
 /// Logs errors that occur outside of the Flutter framework context.

@@ -33,10 +33,10 @@ class AppNumberFormatter {
     try {
       final formatter = NumberFormat.decimalPattern(_currentLocale);
       return formatter.parse(trimmed).toDouble();
-    } on FormatException {
+    } catch (_) {
+      // Catching all exceptions to ensure 'tryParse' contract:
+      // always return null on failure instead of throwing.
       return null;
-    } catch (e) {
-      rethrow;
     }
   }
 

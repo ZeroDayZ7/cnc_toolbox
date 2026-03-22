@@ -1,20 +1,16 @@
+// lib/features/converter/application/converter_settings_provider.dart
 import 'package:cnc_toolbox/core/local_settings_repository.dart';
+import 'package:cnc_toolbox/core/models/result.dart';
+import 'package:cnc_toolbox/core/utils/logger/logger_provider.dart';
 import 'package:cnc_toolbox/features/converter/domain/settings_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'converter_settings_provider.g.dart';
 
 /// Notifier responsible for managing UI-related preferences and configuration.
-///
-/// It acts as a bridge between the [LocalSettingsRepository] and the UI,
-/// ensuring that layout and visibility settings are persisted across sessions.
 @Riverpod(keepAlive: true)
 class SettingsNotifier extends _$SettingsNotifier {
   @override
-  /// Initializes the settings state from local storage.
-  ///
-  /// Watches [localSettingsRepositoryProvider] to ensure the state stays
-  /// in sync with the underlying storage layer.
   SettingsState build() {
     final repo = ref.watch(localSettingsRepositoryProvider);
 
@@ -27,35 +23,49 @@ class SettingsNotifier extends _$SettingsNotifier {
   /// Toggles the navigation sidebar expansion state and persists the change.
   Future<void> toggleSidebar() async {
     final repo = ref.read(localSettingsRepositoryProvider);
-    final newValue = !state.isSidebarExpanded;
+    final oldValue = state.isSidebarExpanded;
+    final newValue = !oldValue;
 
-    // Update UI state immediately for better responsiveness
+    // 1. Optimistic update
     state = state.copyWith(isSidebarExpanded: newValue);
 
-    // Background persistence
-    await repo.setSidebarExpanded(newValue);
+    // 2. Background persistence
+    final result = await repo.setSidebarExpanded(newValue);
+
+    // 3. Rollback on failure using pattern matching
+    if (result case Failure(error: final e)) {
+      state = state.copyWith(isSidebarExpanded: oldValue);
+      _logError("Failed to persist sidebar state", e);
+    }
   }
 
-  /// Adds or removes a unit from the visible list for a specific [category].
-  ///
-  /// Uses immutable collection updates to ensure [Riverpod] correctly
-  /// detects state changes and triggers UI rebuilds.
+  /// Adds or removes a unit from the visible list and persists the change.
   Future<void> toggleUnit(String category, String unitId) async {
     final repo = ref.read(localSettingsRepositoryProvider);
+    final previousVisibleUnits = state.visibleUnits;
 
-    final current = state.visibleUnits[category] ?? [];
+    final currentList = previousVisibleUnits[category] ?? [];
+    final updatedList = currentList.contains(unitId)
+        ? currentList.where((e) => e != unitId).toList()
+        : [...currentList, unitId];
 
-    // Toggle logic: remove if exists, add if missing
-    final updated = current.contains(unitId)
-        ? current.where((e) => e != unitId).toList()
-        : [...current, unitId];
-
-    // Create a new map reference to trigger a state update
+    // 1. Optimistic update
     state = state.copyWith(
-      visibleUnits: {...state.visibleUnits, category: updated},
+      visibleUnits: {...previousVisibleUnits, category: updatedList},
     );
 
-    // Persist the updated unit list to local storage
-    await repo.setVisibleUnits(category, updated);
+    // 2. Background persistence
+    final result = await repo.setVisibleUnits(category, updatedList);
+
+    // 3. Rollback on failure using pattern matching
+    if (result case Failure(error: final e)) {
+      state = state.copyWith(visibleUnits: previousVisibleUnits);
+      _logError("Failed to save unit visibility settings", e);
+    }
+  }
+
+  /// Private helper to keep the logging consistent
+  void _logError(String message, Object error) {
+    ref.read(appLoggerProvider).e(message, error: error, module: "SETTINGS");
   }
 }
