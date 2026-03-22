@@ -3,118 +3,118 @@ import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
 import 'package:cnc_toolbox/features/gd&t_symbols/domain/gd_symbol_model.dart';
 
 final List<GdSymbol> gdSymbolsList = [
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_straightness_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.straightness}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.straightness),
     description: LocaleKeys.gd_symbols_items_straightness_description,
     category: SymbolCategory.form,
-    assetImage: '${GdAssets.basePath}/${GdAssets.straightness}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.straightness),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_flatness_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.flatness}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.flatness),
     description: LocaleKeys.gd_symbols_items_flatness_description,
     category: SymbolCategory.form,
-    assetImage: '${GdAssets.basePath}/${GdAssets.flatness}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.flatness),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_circularity_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.circularity}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.circularity),
     description: LocaleKeys.gd_symbols_items_circularity_description,
     category: SymbolCategory.form,
-    assetImage: '${GdAssets.basePath}/${GdAssets.circularity}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.circularity),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_cylindricity_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.cylindricity}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.cylindricity),
     description: LocaleKeys.gd_symbols_items_cylindricity_description,
     category: SymbolCategory.form,
-    assetImage: '${GdAssets.basePath}/${GdAssets.cylindricity}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.cylindricity),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_profile_line_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.profileLine}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.profileLine),
     description: LocaleKeys.gd_symbols_items_profile_line_description,
     category: SymbolCategory.form,
-    assetImage: '${GdAssets.basePath}/${GdAssets.profileLine}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.profileLine),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_profile_surface_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.profileSurface}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.profileSurface),
     description: LocaleKeys.gd_symbols_items_profile_surface_description,
     category: SymbolCategory.form,
-    assetImage: '${GdAssets.basePath}/${GdAssets.profileSurface}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.profileSurface),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_perpendicularity_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.perpendicularity}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.perpendicularity),
     description: LocaleKeys.gd_symbols_items_perpendicularity_description,
     category: SymbolCategory.orientation,
     requiresDatum: true,
-    assetImage: '${GdAssets.basePath}/${GdAssets.perpendicularity}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.perpendicularity),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_angularity_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.angularity}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.angularity),
     description: LocaleKeys.gd_symbols_items_angularity_description,
     category: SymbolCategory.orientation,
     requiresDatum: true,
-    assetImage: '${GdAssets.basePath}/${GdAssets.angularity}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.angularity),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_parallelism_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.parallelism}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.parallelism),
     description: LocaleKeys.gd_symbols_items_parallelism_description,
     category: SymbolCategory.orientation,
     requiresDatum: true,
-    assetImage: '${GdAssets.basePath}/${GdAssets.parallelism}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.parallelism),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_position_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.position}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.position),
     description: LocaleKeys.gd_symbols_items_position_description,
     category: SymbolCategory.location,
     requiresDatum: true,
-    assetImage: '${GdAssets.basePath}/${GdAssets.position}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.position),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_concentricity_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.concentricity}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.concentricity),
     description: LocaleKeys.gd_symbols_items_concentricity_description,
     category: SymbolCategory.location,
     requiresDatum: true,
-    assetImage: '${GdAssets.basePath}/${GdAssets.concentricity}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.concentricity),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_symmetry_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.symmetry}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.symmetry),
     description: LocaleKeys.gd_symbols_items_symmetry_description,
     category: SymbolCategory.location,
     requiresDatum: true,
-    assetImage: '${GdAssets.basePath}/${GdAssets.symmetry}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.symmetry),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_circular_runout_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.circularRunout}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.circularRunout),
     description: LocaleKeys.gd_symbols_items_circular_runout_description,
     category: SymbolCategory.runout,
     requiresDatum: true,
-    assetImage: '${GdAssets.basePath}/${GdAssets.circularRunout}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.circularRunout),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_total_runout_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.totalRunout}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.totalRunout),
     description: LocaleKeys.gd_symbols_items_total_runout_description,
     category: SymbolCategory.runout,
     requiresDatum: true,
-    assetImage: '${GdAssets.basePath}/${GdAssets.totalRunout}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.totalRunout),
   ),
-  const GdSymbol(
+  GdSymbol(
     name: LocaleKeys.gd_symbols_items_datum_features_name,
-    symbol: '${GdAssets.svgPath}/${GdAssets.datumFeature}.svg',
+    symbol: GdAssets.getVectorPath(GdAssets.datumFeature),
     description: LocaleKeys.gd_symbols_items_datum_features_description,
     category: SymbolCategory.runout,
     requiresDatum: true,
-    assetImage: '${GdAssets.basePath}/${GdAssets.datumFeature}.png',
+    assetImage: GdAssets.getPngPath(GdAssets.datumFeature),
   ),
 ];

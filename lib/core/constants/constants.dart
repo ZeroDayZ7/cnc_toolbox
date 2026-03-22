@@ -69,6 +69,9 @@ class GdAssets {
   static const String basePath = 'assets/images/gd_t_symbols';
   static const String svgPath = '$basePath/svg';
 
+  static String getVectorPath(String name) => '$svgPath/$name.vec';
+  static String getPngPath(String name) => '$basePath/$name.png';
+
   static const String straightness = 'straightness'; // prostoliniowość
   static const String flatness = 'flatness'; // płaskość
   static const String circularity = 'circularity'; // okrągłość
