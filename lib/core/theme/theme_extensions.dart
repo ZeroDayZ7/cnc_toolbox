@@ -36,3 +36,11 @@ class CncColors extends ThemeExtension<CncColors> {
     );
   }
 }
+
+/// Convenient access to [CncColors] via [BuildContext].
+///
+/// Instead of writing: `Theme.of(context).extension<CncColors>()!`
+/// You can now simply write: `context.cncColors`
+extension CncThemeX on BuildContext {
+  CncColors get cncColors => Theme.of(this).extension<CncColors>()!;
+}

@@ -9,7 +9,7 @@ final List<GdSymbol> gdSymbolsList = [
     symbol: GdAssets.getVectorPath(GdAssets.straightness),
     description: LocaleKeys.gd_symbols_items_straightness_description,
     category: SymbolCategory.form,
-    assetImage: GdAssets.getPngPath(GdAssets.straightness),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.straightness),
   ),
   GdSymbol(
     id: GdAssets.flatness,
@@ -17,7 +17,7 @@ final List<GdSymbol> gdSymbolsList = [
     symbol: GdAssets.getVectorPath(GdAssets.flatness),
     description: LocaleKeys.gd_symbols_items_flatness_description,
     category: SymbolCategory.form,
-    assetImage: GdAssets.getPngPath(GdAssets.flatness),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.flatness),
   ),
   GdSymbol(
     id: GdAssets.circularity,
@@ -25,7 +25,7 @@ final List<GdSymbol> gdSymbolsList = [
     symbol: GdAssets.getVectorPath(GdAssets.circularity),
     description: LocaleKeys.gd_symbols_items_circularity_description,
     category: SymbolCategory.form,
-    assetImage: GdAssets.getPngPath(GdAssets.circularity),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.circularity),
   ),
   GdSymbol(
     id: GdAssets.cylindricity,
@@ -33,7 +33,7 @@ final List<GdSymbol> gdSymbolsList = [
     symbol: GdAssets.getVectorPath(GdAssets.cylindricity),
     description: LocaleKeys.gd_symbols_items_cylindricity_description,
     category: SymbolCategory.form,
-    assetImage: GdAssets.getPngPath(GdAssets.cylindricity),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.cylindricity),
   ),
   GdSymbol(
     id: GdAssets.profileLine,
@@ -41,7 +41,7 @@ final List<GdSymbol> gdSymbolsList = [
     symbol: GdAssets.getVectorPath(GdAssets.profileLine),
     description: LocaleKeys.gd_symbols_items_profile_line_description,
     category: SymbolCategory.form,
-    assetImage: GdAssets.getPngPath(GdAssets.profileLine),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.profileLine),
   ),
   GdSymbol(
     id: GdAssets.profileSurface,
@@ -49,7 +49,7 @@ final List<GdSymbol> gdSymbolsList = [
     symbol: GdAssets.getVectorPath(GdAssets.profileSurface),
     description: LocaleKeys.gd_symbols_items_profile_surface_description,
     category: SymbolCategory.form,
-    assetImage: GdAssets.getPngPath(GdAssets.profileSurface),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.profileSurface),
   ),
   GdSymbol(
     id: GdAssets.perpendicularity,
@@ -58,7 +58,7 @@ final List<GdSymbol> gdSymbolsList = [
     description: LocaleKeys.gd_symbols_items_perpendicularity_description,
     category: SymbolCategory.orientation,
     requiresDatum: true,
-    assetImage: GdAssets.getPngPath(GdAssets.perpendicularity),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.perpendicularity),
   ),
   GdSymbol(
     id: GdAssets.angularity,
@@ -67,7 +67,7 @@ final List<GdSymbol> gdSymbolsList = [
     description: LocaleKeys.gd_symbols_items_angularity_description,
     category: SymbolCategory.orientation,
     requiresDatum: true,
-    assetImage: GdAssets.getPngPath(GdAssets.angularity),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.angularity),
   ),
   GdSymbol(
     id: GdAssets.parallelism,
@@ -76,7 +76,7 @@ final List<GdSymbol> gdSymbolsList = [
     description: LocaleKeys.gd_symbols_items_parallelism_description,
     category: SymbolCategory.orientation,
     requiresDatum: true,
-    assetImage: GdAssets.getPngPath(GdAssets.parallelism),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.parallelism),
   ),
   GdSymbol(
     id: GdAssets.position,
@@ -85,7 +85,7 @@ final List<GdSymbol> gdSymbolsList = [
     description: LocaleKeys.gd_symbols_items_position_description,
     category: SymbolCategory.location,
     requiresDatum: true,
-    assetImage: GdAssets.getPngPath(GdAssets.position),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.position),
   ),
   GdSymbol(
     id: GdAssets.concentricity,
@@ -94,7 +94,7 @@ final List<GdSymbol> gdSymbolsList = [
     description: LocaleKeys.gd_symbols_items_concentricity_description,
     category: SymbolCategory.location,
     requiresDatum: true,
-    assetImage: GdAssets.getPngPath(GdAssets.concentricity),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.concentricity),
   ),
   GdSymbol(
     id: GdAssets.symmetry,
@@ -103,7 +103,7 @@ final List<GdSymbol> gdSymbolsList = [
     description: LocaleKeys.gd_symbols_items_symmetry_description,
     category: SymbolCategory.location,
     requiresDatum: true,
-    assetImage: GdAssets.getPngPath(GdAssets.symmetry),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.symmetry),
   ),
   GdSymbol(
     id: GdAssets.circularRunout,
@@ -112,7 +112,7 @@ final List<GdSymbol> gdSymbolsList = [
     description: LocaleKeys.gd_symbols_items_circular_runout_description,
     category: SymbolCategory.runout,
     requiresDatum: true,
-    assetImage: GdAssets.getPngPath(GdAssets.circularRunout),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.circularRunout),
   ),
   GdSymbol(
     id: GdAssets.totalRunout,
@@ -121,7 +121,7 @@ final List<GdSymbol> gdSymbolsList = [
     description: LocaleKeys.gd_symbols_items_total_runout_description,
     category: SymbolCategory.runout,
     requiresDatum: true,
-    assetImage: GdAssets.getPngPath(GdAssets.totalRunout),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.totalRunout),
   ),
   GdSymbol(
     id: GdAssets.datumFeature,
@@ -130,6 +130,6 @@ final List<GdSymbol> gdSymbolsList = [
     description: LocaleKeys.gd_symbols_items_datum_features_description,
     category: SymbolCategory.runout,
     requiresDatum: true,
-    assetImage: GdAssets.getPngPath(GdAssets.datumFeature),
+    assetImage: GdAssets.getIllustrationPath(GdAssets.datumFeature),
   ),
 ];

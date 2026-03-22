@@ -1,3 +1,4 @@
+import 'package:cnc_toolbox/core/theme/theme_extensions.dart';
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
@@ -34,6 +35,12 @@ class AppTheme {
     brightness: Brightness.light,
     colorSchemeSeed: AppColors.primary,
     inputDecorationTheme: _inputTheme(Brightness.light),
+    extensions: [
+      CncColors(
+        toolStatus: AppColors.statusReady,
+        machineActive: AppColors.statusWorking,
+      ),
+    ],
   );
 
   /// Configures the Dark Theme.
@@ -45,5 +52,11 @@ class AppTheme {
     colorSchemeSeed: AppColors.primary,
     scaffoldBackgroundColor: AppColors.bgDark,
     inputDecorationTheme: _inputTheme(Brightness.dark),
+    extensions: [
+      CncColors(
+        toolStatus: AppColors.statusReady.withValues(alpha: 0.8),
+        machineActive: AppColors.accent,
+      ),
+    ],
   );
 }

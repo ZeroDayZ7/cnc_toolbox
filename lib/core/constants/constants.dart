@@ -67,11 +67,12 @@ abstract class AppOpacity {
 
 /// --- SYMBOLS ASSETS PATHS ---
 abstract class GdAssets {
-  static const String basePath = 'assets/images/gd_t_symbols';
-  static const String svgPath = '$basePath/svg';
+  static const String _basePath = 'assets/images/gd_t_symbols';
+  static const String _vectorPath = '$_basePath/vectors';
+  static const String _illustrationPath = '$_basePath/illustrations';
 
-  static String getVectorPath(String name) => '$svgPath/$name.vec';
-  static String getPngPath(String name) => '$basePath/$name.png';
+  static String getVectorPath(String name) => '$_vectorPath/$name.vec';
+  static String getIllustrationPath(String name) => '$_illustrationPath/$name.png';
 
   static const String straightness = 'straightness'; // prostoliniowość
   static const String flatness = 'flatness'; // płaskość
