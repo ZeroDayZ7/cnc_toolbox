@@ -16,6 +16,12 @@ analyzer:
   errors:
     unreachable_switch_case: ignore
     invalid_annotation_target: ignore
+    unused_import: error
+    unused_local_variable: error
+    unused_field: error
+    unused_element: error
+    dead_code: error
+    avoid_print: warning
 
   language:
     strict-casts: true

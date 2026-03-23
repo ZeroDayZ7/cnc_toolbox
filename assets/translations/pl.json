@@ -40,7 +40,7 @@
     "compensated_feed": "Skompensowany posuw (Vf)",
     "linear_feed": "Posuw liniowy (Vf)",
     "per_rev": "Na obrót: {} mm/obr",
-    "unit_min": "mm/min"
+    "unit_min_formatted": "{} mm/min"
   },
   "g_codes_info": {
     "title": "O G-kodach",

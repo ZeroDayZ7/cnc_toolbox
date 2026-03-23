@@ -55,4 +55,4 @@ final class FeedRateRepositoryProvider
 }
 
 String _$feedRateRepositoryHash() =>
-    r'c0785638866e46e8a1333408b7af7170ccbe8f56';
+    r'f1136fd64ca844127b015afefab4766893b104b1';

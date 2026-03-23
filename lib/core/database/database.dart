@@ -1,4 +1,5 @@
 import 'package:cnc_toolbox/core/constants/constants.dart';
+import 'package:cnc_toolbox/core/database/daos/drift_feed_rate_dao.dart';
 import 'package:drift/drift.dart';
 import 'package:drift_flutter/drift_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -29,53 +30,15 @@ class SearchResults extends Table {
 }
 
 /// The main local database class using Drift for SQL persistence.
-@DriftDatabase(tables: [SearchResults, FeedCalculations])
+@DriftDatabase(
+  tables: [SearchResults, FeedCalculations],
+  daos: [DriftFeedRateDao],
+)
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.e);
 
   @override
   int get schemaVersion => 2;
-
-  /// Persists a new feed rate calculation to the local database.
-  ///
-  /// Returns the generated ID of the inserted row.
-  Future<int> saveFeedCalculation({
-    required double n,
-    required double fz,
-    required int z,
-    required double vf,
-    double? d,
-    double? dWork,
-  }) {
-    return into(feedCalculations).insert(
-      FeedCalculationsCompanion.insert(
-        spindleSpeed: n,
-        feedPerTooth: fz,
-        teeth: z,
-        resultVf: vf,
-        toolDiameter: Value(d),
-        featureDiameter: Value(dWork),
-      ),
-    );
-  }
-
-  /// Retrieves a paginated list of feed rate calculations from history.
-  ///
-  /// Results are ordered by creation date (newest first).
-  Future<List<FeedCalculation>> getFeedHistory({
-    int limit = 10,
-    int offset = 0,
-  }) {
-    return (select(feedCalculations)
-          ..orderBy([(t) => OrderingTerm.desc(t.createdAt)])
-          ..limit(limit, offset: offset))
-        .get();
-  }
-
-  /// Removes a specific feed calculation entry by its [id].
-  Future<int> deleteFeedEntry(int id) {
-    return (delete(feedCalculations)..where((t) => t.id.equals(id))).go();
-  }
 
   /// Saves a search query and its corresponding JSON result for later retrieval.
   Future<int> saveSearchResult(String query, String json) {

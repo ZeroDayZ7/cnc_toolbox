@@ -38,7 +38,7 @@ abstract class  LocaleKeys {
   static const feed_results_compensated_feed = 'feed_results.compensated_feed';
   static const feed_results_linear_feed = 'feed_results.linear_feed';
   static const feed_results_per_rev = 'feed_results.per_rev';
-  static const feed_results_unit_min = 'feed_results.unit_min';
+  static const feed_results_unit_min_formatted = 'feed_results.unit_min_formatted';
   static const feed_results = 'feed_results';
   static const g_codes_info_title = 'g_codes_info.title';
   static const g_codes_info_description = 'g_codes_info.description';

@@ -20,20 +20,25 @@ class AboutSection extends ConsumerWidget {
       context: context,
       builder: (context) {
         return AlertDialog(
-          // InsetPadding zapobiega dotykaniu krawędzi na telefonach
           insetPadding: const EdgeInsets.symmetric(
             horizontal: 16,
             vertical: 24,
           ),
           shape: RoundedRectangleBorder(borderRadius: AppRadii.radiusL),
           title: Text(LocaleKeys.about.tr()),
-          content: SizedBox(
-            // --- TUTAJ USTALASZ STAŁĄ SZEROKOŚĆ ---
-            width: 400,
-            child: Column(
-              mainAxisSize:
-                  MainAxisSize.min,
-              children: [_Content(onLaunch: _launchUrl)],
+          content: ConstrainedBox(
+            constraints: const BoxConstraints(
+              // Maksymalna szerokość dla desktopu/tabletów
+              maxWidth: 450,
+              // Minimalna szerokość, żeby dialog nie był "chudy" przy krótkim tekście
+              minWidth: 300,
+            ),
+            child: IntrinsicWidth(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [_Content(onLaunch: _launchUrl)],
+              ),
             ),
           ),
           actions: [
@@ -178,10 +183,7 @@ class _ClickableRow extends StatelessWidget {
                 ],
               ),
             ),
-            const Icon(
-              Icons.open_in_new,
-              size: 16,
-            ),
+            const Icon(Icons.open_in_new, size: 16),
           ],
         ),
       ),

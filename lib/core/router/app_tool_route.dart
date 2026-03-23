@@ -5,6 +5,6 @@ abstract interface class AppToolRoute {
   String get labelKey;
   String get descriptionKey;
   String get path;
-  void go(BuildContext context);
+  void navigateTo(BuildContext context);
   bool isActive(String location);
 }

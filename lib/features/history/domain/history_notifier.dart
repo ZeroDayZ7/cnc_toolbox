@@ -16,10 +16,9 @@ class HistoryNotifier extends _$HistoryNotifier {
   Future<List<FeedHistoryItem>> _fetchAndMapHistory() async {
     final db = ref.read(databaseProvider);
 
-    // Pobieramy surowe dane z Drifta
-    final driftData = await db.getFeedHistory();
+    // ZMIANA: Wywołanie przez driftFeedRateDao
+    final driftData = await db.driftFeedRateDao.getAllHistory();
 
-    // Mapujemy na nasz czysty model DTO
     return driftData
         .map(
           (e) => FeedHistoryItem(
@@ -28,7 +27,7 @@ class HistoryNotifier extends _$HistoryNotifier {
             fz: e.feedPerTooth,
             z: e.teeth,
             createdAt: e.createdAt,
-            toolDiameter: e.toolDiameter ?? 0.0, 
+            toolDiameter: e.toolDiameter ?? 0.0,
           ),
         )
         .toList();

@@ -82,7 +82,7 @@ class CncDrawer extends StatelessWidget {
                     if (isSelected) {
                       context.pop();
                     } else {
-                      tool.go(context);
+                      tool.navigateTo(context);
                     }
                   },
                 );

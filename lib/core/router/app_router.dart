@@ -23,7 +23,7 @@ part 'app_router.g.dart';
 // --- MIXIN: Ta "supermoc" dodaje logikę do tras narzędzi ---
 mixin ToolRouteMixin on GoRouteData implements AppToolRoute {
   @override
-  void go(BuildContext context) => (this as GoRouteData).go(context);
+  void navigateTo(BuildContext context) => (this as GoRouteData).go(context);
 
   @override
   bool isActive(String location) => location == path;

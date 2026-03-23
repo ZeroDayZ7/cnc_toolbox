@@ -1,3 +1,4 @@
+import 'package:cnc_toolbox/core/database/daos/feed_rate_dao.dart'; // Import interfejsu DAO
 import 'package:cnc_toolbox/core/database/database.dart';
 import 'package:cnc_toolbox/core/models/result.dart';
 import 'package:cnc_toolbox/features/feed_rate/domain/feed_calculation_dto.dart';
@@ -15,13 +16,15 @@ abstract class IFeedRateRepository {
 }
 
 class FeedRateRepository implements IFeedRateRepository {
-  final AppDatabase _db;
-  FeedRateRepository(this._db);
+  // ZAMIENIONO: AppDatabase na FeedRateDao (interfejs)
+  final FeedRateDao _dao;
+  FeedRateRepository(this._dao);
 
   @override
   Future<Result<void>> saveCalculationDto(FeedCalculationDto dto) async {
     try {
-      await _db.saveFeedCalculation(
+      // Używamy metod z DAO zamiast bezpośrednio z bazy
+      await _dao.insertCalculation(
         n: dto.n,
         fz: dto.fz,
         z: dto.z,
@@ -41,7 +44,7 @@ class FeedRateRepository implements IFeedRateRepository {
     int offset = 0,
   }) async {
     try {
-      final history = await _db.getFeedHistory(limit: limit, offset: offset);
+      final history = await _dao.getAllHistory(limit: limit, offset: offset);
       return Success(history);
     } catch (e, st) {
       return Failure(e, st);
@@ -51,7 +54,7 @@ class FeedRateRepository implements IFeedRateRepository {
   @override
   Future<Result<void>> deleteEntry(int id) async {
     try {
-      await _db.deleteFeedEntry(id);
+      await _dao.deleteById(id);
       return const Success(null);
     } catch (e, st) {
       return Failure(e, st);
@@ -61,5 +64,6 @@ class FeedRateRepository implements IFeedRateRepository {
 
 @Riverpod(keepAlive: true)
 IFeedRateRepository feedRateRepository(Ref ref) {
-  return FeedRateRepository(ref.watch(databaseProvider));
+  final db = ref.watch(databaseProvider);
+  return FeedRateRepository(db.driftFeedRateDao);
 }

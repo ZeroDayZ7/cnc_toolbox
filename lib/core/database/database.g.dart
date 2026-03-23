@@ -830,6 +830,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $FeedCalculationsTable feedCalculations = $FeedCalculationsTable(
     this,
   );
+  late final DriftFeedRateDao driftFeedRateDao = DriftFeedRateDao(
+    this as AppDatabase,
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();

@@ -24,6 +24,7 @@ dart run scripts/generate_vector_graphics.dart
 
 # Jeśli chcesz szybko  błędy
 dart fix --apply
+flutter analyze
 
 # Release
 

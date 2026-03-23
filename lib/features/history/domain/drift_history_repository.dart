@@ -2,6 +2,8 @@ import 'package:cnc_toolbox/core/database/database.dart';
 import 'package:cnc_toolbox/features/history/domain/i_history_repository.dart';
 import 'package:cnc_toolbox/features/history/models/feed_history_entry.dart';
 
+// lib/features/history/domain/drift_history_repository.dart
+
 class DriftHistoryRepository implements IHistoryRepository {
   final AppDatabase _db;
   DriftHistoryRepository(this._db);
@@ -11,7 +13,11 @@ class DriftHistoryRepository implements IHistoryRepository {
     int limit = 10,
     int offset = 0,
   }) async {
-    final rows = await _db.getFeedHistory(limit: limit, offset: offset);
+    // ZMIANA: używamy DAO
+    final rows = await _db.driftFeedRateDao.getAllHistory(
+      limit: limit,
+      offset: offset,
+    );
     return rows.map((row) => row.toDomain()).toList();
   }
 
@@ -24,7 +30,8 @@ class DriftHistoryRepository implements IHistoryRepository {
     double? d,
     double? dWork,
   }) async {
-    await _db.saveFeedCalculation(
+    // ZMIANA: używamy DAO
+    await _db.driftFeedRateDao.insertCalculation(
       n: n,
       fz: fz,
       z: z,
@@ -36,7 +43,8 @@ class DriftHistoryRepository implements IHistoryRepository {
 
   @override
   Future<void> deleteEntry(int id) async {
-    await _db.deleteFeedEntry(id);
+    // ZMIANA: używamy DAO
+    await _db.driftFeedRateDao.deleteById(id);
   }
 }
 

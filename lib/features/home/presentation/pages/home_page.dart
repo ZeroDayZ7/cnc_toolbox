@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                   icon: tool.icon,
                   label: tool.labelKey,
                   description: tool.descriptionKey,
-                  onTap: () => tool.go(context),
+                  onTap: () => tool.navigateTo(context),
                 );
               },
             );
