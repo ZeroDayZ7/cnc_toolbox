@@ -56,4 +56,16 @@ class DriftHistoryRepository implements IHistoryRepository {
       return Failure(e, st);
     }
   }
+
+  @override
+  Future<Result<void>> clearAllHistory() async {
+    try {
+      await _db.transaction(() async {
+        await _db.delete(_db.feedCalculations).go();
+      });
+      return const Success(null);
+    } catch (e, st) {
+      return Failure(e, st);
+    }
+  }
 }

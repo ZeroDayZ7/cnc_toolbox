@@ -32,6 +32,15 @@ class HistoryNotifier extends _$HistoryNotifier {
     }
   }
 
+  Future<void> clearHistory() async {
+    final repo = ref.read(historyRepositoryProvider);
+    final result = await repo.clearAllHistory();
+
+    if (result is Success) {
+      state = const AsyncData([]);
+    }
+  }
+
   Future<void> refreshHistory() async {
     state = const AsyncLoading();
     final repo = ref.read(historyRepositoryProvider);

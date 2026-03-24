@@ -18,4 +18,6 @@ abstract class IHistoryRepository {
   });
 
   Future<Result<void>> deleteEntry(int id);
+
+  Future<Result<void>> clearAllHistory();
 }
