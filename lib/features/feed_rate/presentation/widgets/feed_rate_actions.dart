@@ -1,5 +1,5 @@
 import 'package:cnc_toolbox/core/localization/locale_keys.g.dart';
-import 'package:cnc_toolbox/features/feed_rate/application/feed_rate_controller.dart';
+import 'package:cnc_toolbox/features/feed_rate/application/feed_rate_provider.dart';
 import 'package:cnc_toolbox/features/feed_rate/domain/feed_type.dart';
 import 'package:cnc_toolbox/features/history/presentation/history_sheet.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -32,7 +32,7 @@ class FeedRateActions extends ConsumerWidget {
           onPressed: () async {
             final tabIndex = DefaultTabController.of(context).index;
             final type = tabIndex == 0 ? FeedType.basic : FeedType.arc;
-            await ref.read(feedRateControllerProvider.notifier).save(type);
+            await ref.read(feedRateProvider(type).notifier).save();
             if (context.mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
