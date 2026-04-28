@@ -30,7 +30,7 @@
     "linux": true,
     "macos": true,
     "web": true,
-    "windows": true,
+    // "windows": true,
     "test": true,
     ".gitattributes": true,
     "pubspec.lock": true,
@@ -38,10 +38,11 @@
     "LICENSE": true,
     "devtools_options.yaml": true,
     "flutter_launcher_icons.yaml": true,
-    // "**/*.freezed.dart": true,
-    // "**/*.g.dart": true,
+    "**/*.freezed.dart": true,
+    "**/*.g.dart": true,
     "android": true,
-    "cnc_toolbox.iml": true
+    "cnc_toolbox.iml": true,
+    "raw_assets/": true
   },
 
   // (Search)
@@ -75,7 +76,8 @@
     "**/*.freezed.dart": true,
     "**/*.g.dart": true,
     "**/*.txt": true,
-    "cnc_toolbox.iml": true
+    "cnc_toolbox.iml": true,
+    "raw_assets/": true
   },
   "search.useIgnoreFiles": true,
   "search.useGlobalIgnoreFiles": true,

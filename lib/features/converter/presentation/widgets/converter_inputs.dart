@@ -4,10 +4,10 @@ import 'package:cnc_toolbox/features/converter/models/converter_category.dart';
 import 'package:cnc_toolbox/features/converter/models/unit_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ConverterInputs extends HookConsumerWidget {
+// 1. ConverterInputs zmieniamy na zwykły ConsumerWidget (nie potrzebuje stanu)
+class ConverterInputs extends ConsumerWidget {
   final List<UnitDefinition> units;
   final ConverterCategory category;
 
@@ -35,7 +35,8 @@ class ConverterInputs extends HookConsumerWidget {
   }
 }
 
-class _UnitRow extends HookConsumerWidget {
+// 2. _UnitRow staje się ConsumerStatefulWidget
+class _UnitRow extends ConsumerStatefulWidget {
   final UnitDefinition unit;
   final ConverterCategory category;
   final List<UnitDefinition> allUnits;
@@ -48,31 +49,59 @@ class _UnitRow extends HookConsumerWidget {
   });
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(converterProvider(category));
-    final controller = useTextEditingController();
-    final focusNode = useFocusNode();
-    final value = state.values[unit.id] ?? "";
+  ConsumerState<_UnitRow> createState() => _UnitRowState();
+}
 
-    useEffect(() {
-      if (!focusNode.hasFocus && controller.text != value) {
-        controller.text = value;
-      }
-      return null;
-    }, [value, focusNode.hasFocus]);
+class _UnitRowState extends ConsumerState<_UnitRow> {
+  late TextEditingController _controller;
+  late FocusNode _focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    // Inicjalizacja kontrolera z obecną wartością z providera
+    final initialValue =
+        ref.read(converterProvider(widget.category)).values[widget.unit.id] ??
+        "";
+    _controller = TextEditingController(text: initialValue);
+    _focusNode = FocusNode();
+  }
+
+  @override
+  void dispose() {
+    // Ręczne sprzątanie zasobów - to zastępuje automatykę z hooków
+    _controller.dispose();
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final state = ref.watch(converterProvider(widget.category));
+    final value = state.values[widget.unit.id] ?? "";
+
+    if (!_focusNode.hasFocus && _controller.text != value) {
+      // Używamy Future.microtask lub WidgetsBinding, aby uniknąć błędów
+      // budowania widżetu podczas zmiany stanu kontrolera
+      Future.microtask(() {
+        if (mounted && !_focusNode.hasFocus) {
+          _controller.text = value;
+        }
+      });
+    }
 
     return TextField(
-      controller: controller,
-      focusNode: focusNode,
+      controller: _controller,
+      focusNode: _focusNode,
       keyboardType: const TextInputType.numberWithOptions(decimal: true),
       decoration: InputDecoration(
-        labelText: unit.label.tr(),
-        suffixText: unit.symbol,
+        labelText: widget.unit.label.tr(),
+        suffixText: widget.unit.symbol,
       ),
       onChanged: (val) {
         ref
-            .read(converterProvider(category).notifier)
-            .updateValue(unit.id, val, allUnits);
+            .read(converterProvider(widget.category).notifier)
+            .updateValue(widget.unit.id, val, widget.allUnits);
       },
     );
   }
